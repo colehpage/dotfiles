@@ -1,0 +1,44 @@
+pids
+logs
+node_modules
+npm-debug.log
+coverage/
+run
+dist
+.DS_Store
+.nyc_output
+.basement
+config.local.js
+basement_dist
+mackup/.ssh
+
+mackup/.config/fish/fish_variables
+mackup/.config/fish/functions/fzf_key_bindings.fish
+mackup/.aws/credentials
+
+mackup/.wakatime.cfg
+mackup/.gnupg/trustdb.gpg
+mackup/.yarnrc
+
+mackup/Library/Application Support/Adobe
+mackup/Library/Developer/Xcode/UserData/KeyBindings
+mackup/Library/Application Support/obs-studio
+mackup/Library/Preferences/com.adobe.Photoshop.plist
+mackup/Library/Preferences/com.adobe.illustrator.plist
+mackup/Library/Preferences/com.apple.Music.eq.plist
+mackup/Library/Preferences/com.apple.Music.plist
+mackup/Library/Preferences/com.apple.dt.Xcode.plist
+mackup/Library/Preferences/com.apple.symbolichotkeys.plist
+mackup/Library/Preferences/com.logitech.manager.setting.ffff.plist
+mackup/Library/Preferences/com.obsproject.obs-studio.plist
+mackup/Library/Preferences/com.raycast.macos.plist
+mackup/Library/Preferences/com.spotify.client.plist
+mackup/Library/Application Support/Loopback/Devices.plist
+mackup/Library/Application Support/Rocket/rocket.db
+mackup/Library/Application Support/zoxide/db.zo
+mackup/Library/Preferences/com.apple.Terminal.plist
+mackup/Library/Preferences/com.knollsoft.Rectangle.plist
+mackup/Library/Preferences/com.rogueamoeba.Loopback.plist
+mackup/Library/Preferences/name.guoc.SpaceLauncher.plist
+mackup/Library/Preferences/net.matthewpalmer.Rocket.plist
+mackup/.npmrc
