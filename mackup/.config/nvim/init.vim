@@ -1,4 +1,3 @@
-" cSpell:words goyo floaterm
 call plug#begin()
 source $HOME/.config/nvim/nvim-config/plugins.vim
 call plug#end()
