@@ -22,6 +22,13 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
+-- Increment/decrement
+keymap('n', '+', '<C-a>')
+keymap('n', '-', '<C-x>')
+
+-- Select all
+keymap('n', '<C-a>', 'gg<S-v>G')
+
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)

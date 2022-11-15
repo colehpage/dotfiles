@@ -19,23 +19,25 @@ dap_install.config("python", {})
 -- add other configs here
 
 dapui.setup {
-  sidebar = {
-    elements = {
-      {
-        id = "scopes",
-        size = 0.25, -- Can be float or integer > 1
+  layouts = {
+    {
+      elements = {
+        {
+          id = "scopes",
+          size = 0.25 -- Can be float or integer > 1
+        },
+        {id = "breakpoints", size = 0.25}
       },
-      { id = "breakpoints", size = 0.25 },
-    },
-    size = 40,
-    position = "right", -- Can be "left", "right", "top", "bottom"
-  },
-  tray = {
-    elements = {},
-  },
+      size = 40,
+      position = "right"
+    }, -- Can be "left", "right", "top", "bottom"
+    tray = {
+      elements = {}
+    }
+  }
 }
 
-vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpoint", {text = "", texthl = "DiagnosticSignError", linehl = "", numhl = ""})
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()

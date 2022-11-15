@@ -1,5 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ZSH_THEME="af-magic"
@@ -13,8 +11,8 @@ source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighti
 
 # CONFIGS
 alias zshconfig="nvim ~/.zshrc"
-alias yconfig="nvim ~/.yabairc"
-alias skhdconfig="nvim ~/.skhdrc"
+alias yconfig="nvim ~/.config/yabai/.yabairc"
+alias skhdconfig="nvim ~/.config/skhd/.skhdrc"
 alias alconfig="nvim ~/.config/alacritty/alacritty.yml"
 alias sbconfig="nvim ~/.config/sketchybar/sketchybarrc"
 alias tmuxconfig="nvim ~/.tmux.conf"
@@ -39,6 +37,12 @@ alias brewup="brew upgrade"
 
 alias awskey="echo AKIASG7LNLQJ77QWSTN4"
 alias awssecret="echo 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"
+alias awspassword="echo bee42b3ad51b5851fe0d76770bbebb0b"
+
+alias compoundpassuser="echo MISSING"
+alias compoundpassadmin="echo 6db51be9d84ae4dcc31edc51a2c29176"
+alias setproductiondatabaseurl="export PRODUCTION_DATABASE_URL=postgres://cole:bee42b3ad51b5851fe0d76770bbebb0b@production.cweljlhphnze.us-west-1.rds.amazonaws.com:5432/production"
+alias resetpasswordstring="echo PROD=1 DATABASE_URL=$PRODUCTION_DATABASE_URL LOGDNA_KEY=foo npx ts-node -r tsconfig-paths/register src/scripts/updateUserPassword.ts --user-id b17efc73-5ebf-4350-aabb-e48a1562bf6e"
 
 alias vim="nvim"
 alias vi="nvim"
@@ -105,8 +109,25 @@ function mas() {
   fi
 }
 
+# Fancy sketchybar commands
+function margin () {
+  if [ $1 = "on" ]; then
+    yabai -m config top_padding 20
+    sketchybar --animate sin 30 --bar margin=10 y_offset=10 corner_radius=9
+  else
+    yabai -m config top_padding 10
+    sketchybar --animate sin 30 --bar margin=0 y_offset=0 corner_radius=0
+  fi
+}
+
+
 function zen () {
   ~/.config/sketchybar/plugins/zen.sh $1
+}
+
+function suyabai () {
+  SHA256=$(shasum -a 256 /opt/homebrew/bin/yabai | awk "{print \$1;}")
+  sudo sed -i '' -e 's/sha256:[[:alnum:]]*/sha256:'${SHA256}'/' /private/etc/sudoers.d/yabai
 }
 
 
@@ -134,11 +155,8 @@ function swapFiles() {
     fi
 }
 
-alias yswap="swapFiles ~/.yabairc ~/.yabaircswap; restartyabai"
+alias yswap="swapFiles ~/.config/yabai/yabairc ~/.config/yabai/yabaircswap; restartyabai"
 
 export NNN_TMPFILE="$HOME/.config/nnn/.lastd"
 export EDITOR="$(which nvim)"
 export NVM_DIR=~/.nvm
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
