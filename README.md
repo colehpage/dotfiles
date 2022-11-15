@@ -39,3 +39,10 @@ This will take a while so have some patience.
 
 - Font: Hack Nerd Font Mono
 - Colors: Tokyo Night
+
+# Other installation pieces
+
+- curl -L
+  https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v1.0.3/sketchybar-app-font.ttf
+  -o $HOME/Library/Fonts/sketchybar-app-font.ttf
+- https://github.com/catppuccin/spicetify
