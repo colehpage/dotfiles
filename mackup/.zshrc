@@ -35,6 +35,18 @@ alias restartsb="brew services restart sketchybar"
 
 alias brewup="brew upgrade"
 
+alias vim="nvim"
+alias vi="nvim"
+
+alias weather="curl wttr.in"
+
+##### COMPOUND #####
+alias frontend="cd ~/repos/frontend"
+alias backend="cd ~/repos/backend"
+alias migrate="npx sequelize db:migrate"
+
+alias test="doppler run --command='yarn test'"
+
 alias awskey="echo AKIASG7LNLQJ77QWSTN4"
 alias awssecret="echo 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"
 alias awspassword="echo bee42b3ad51b5851fe0d76770bbebb0b"
@@ -44,15 +56,13 @@ alias compoundpassadmin="echo 6db51be9d84ae4dcc31edc51a2c29176"
 alias setproductiondatabaseurl="export PRODUCTION_DATABASE_URL=postgres://cole:bee42b3ad51b5851fe0d76770bbebb0b@production.cweljlhphnze.us-west-1.rds.amazonaws.com:5432/production"
 alias resetpasswordstring="echo PROD=1 DATABASE_URL=$PRODUCTION_DATABASE_URL LOGDNA_KEY=foo npx ts-node -r tsconfig-paths/register src/scripts/updateUserPassword.ts --user-id b17efc73-5ebf-4350-aabb-e48a1562bf6e"
 
-alias vim="nvim"
-alias vi="nvim"
+#####
 
-# COMPOUND
-alias frontend="cd ~/repos/frontend"
-alias backend="cd ~/repos/backend"
-alias migrate="npx sequelize db:migrate"
 
-alias test="doppler run --command='yarn test'"
+##### WEATHER #####
+
+alias weather="curl 'wttr.in/Philadelphia?u'"
+alias weather2="curl 'v2.wttr.in/Philadelphia?u'"
 
 source $(brew --prefix nvm)/nvm.sh
 

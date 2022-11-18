@@ -82,7 +82,7 @@
   "workbench.preferredLightColorTheme": "Night Owl Light",
   "workbench.preferredHighContrastColorTheme": "Night Owl",
   "workbench.preferredHighContrastLightColorTheme": "Night Owl Light",
-  "workbench.colorTheme": "Snazzy Operator",
+  "workbench.colorTheme": "Catppuccin Macchiato",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.sideBar.location": "left",
   "workbench.startupEditor": "none",
@@ -150,5 +150,6 @@
   "[lua]": {
     "editor.defaultFormatter": "trixnz.vscode-lua"
   },
-  "editor.stickyScroll.enabled": true
+  "editor.stickyScroll.enabled": true,
+  "editor.inlineSuggest.enabled": true
 }
