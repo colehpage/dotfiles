@@ -1,1 +1,0 @@
-UPDATE "public"."users" SET "role" = 'advisor' WHERE "id" = '08556f66-384f-4c66-b9ae-cfdcd7e98077';

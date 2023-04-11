@@ -1,0 +1,102 @@
+#    _____ _    _ _____  
+#   / ____| |  | |  __ \ 
+#  | |    | |__| | |__) | github: https://github.com/colehpage
+#  | |    |  __  |  ___/  dotfiles: https://github.com/colehpage/Dotfiles
+#  | |____| |  | | |      website: https://colehpage.com
+#   \_____|_|  |_|_|     
+
+source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
+source "$HOME/.config/sketchybar/icons.sh" # Loads all defined icons
+
+### Store plugin and item directories in variables ###
+ITEM_DIR="$HOME/.config/sketchybar/items"       # Directory where the items are configured
+PLUGIN_DIR="$HOME/.config/sketchybar/plugins"   # Directory where all the plugin scripts are stored
+
+### Define defult font ###
+FONT="Monocraft" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
+
+### Padding ###
+PADDINGS=3  # All elements use this padidng
+
+# Unload the macOS on screen indicator overlay for volume change
+launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
+
+# Setting up the general bar appearance of the bar
+bar=(
+  height=50
+  color=$BAR_COLOR
+  border_width=2
+  border_color=$BAR_BORDER_COLOR
+  shadow=off
+  position=top
+  sticky=on
+  margin=15
+  blur_radius=0
+  padding_left=4
+  padding_right=4
+  topmost=off
+  font_smoothing=off
+  y_offset=-100
+#   padding_right=10
+#   padding_left=10
+#   y_offset=-5
+#   corner_radius=14
+#   border_width=0
+#   color=0xff1a1c26
+#   notch_width=0
+)
+
+sketchybar --bar "${bar[@]}"
+
+# Setting up default values
+defaults=(
+  drawing=on
+  updates=when_shown
+  icon.font="$FONT:Bold:14.0"
+  icon.color=$ICON_COLOR
+  icon.padding_left=$PADDINGS
+  icon.padding_right=$PADDINGS
+  label.font="$FONT:Semibold:13.0"
+  label.color=$LABEL_COLOR
+  label.padding_left=$PADDINGS
+  label.padding_right=$PADDINGS
+  padding_right=$PADDINGS
+  padding_left=$PADDINGS
+  background.height=26
+  background.corner_radius=9
+  background.border_width=2
+  popup.background.border_width=2
+  popup.background.corner_radius=9
+  popup.background.border_color=$POPUP_BORDER_COLOR
+  popup.background.color=$POPUP_BACKGROUND_COLOR
+  popup.blur_radius=20
+  popup.background.shadow.drawing=on
+)
+
+sketchybar --default "${defaults[@]}"
+
+sketchybar --animate sin 30 --bar y_offset=-100 y_offset=15
+
+### Left ###
+. "$ITEM_DIR/onosendai_menu.sh" # onosendai logo
+. "$ITEM_DIR/system.sh"    # resources monitor
+. "$ITEM_DIR/spotify.sh"   # spotify widget
+# . "$ITEM_DIR/clipboard.sh"   # spotify widget
+
+### Center ###
+. "$ITEM_DIR/spaces.sh"    # workspaces
+# . "$ITEM_DIR/weather.sh"    # weather
+# . "$ITEM_DIR/moon.sh"    # moon
+
+### Right ###
+. "$ITEM_DIR/time.sh"      # time
+. "$ITEM_DIR/calendar.sh"      # calendar
+. "$ITEM_DIR/brew.sh"   # homebrew updates
+. "$ITEM_DIR/sound.sh"     # sound
+. "$ITEM_DIR/battery.sh"   # battery
+. "$ITEM_DIR/playing.sh"   # playing on spotify
+
+# Forcing all item scripts to run (never do this outside of sketchybarrc)
+sketchybar --update
+
+echo "sketchybar configuation loaded.."

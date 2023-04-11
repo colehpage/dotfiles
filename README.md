@@ -3,7 +3,12 @@
 This is the home of all my dotfiles. These are special files that add custom
 configurations to my computer and applications, primarily the terminnal.
 
+# Everything
+
+Run the `install.sh` script to run the entire flow
 # Homebrew
+
+To just install dumped homebrew packages:
 
 With homebrew installed run `brew bundle install` to install everything in the
 Brewfile.

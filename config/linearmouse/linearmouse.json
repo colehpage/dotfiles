@@ -1,0 +1,26 @@
+{
+  "$schema" : "https:\/\/app.linearmouse.org\/schema\/0.7.5",
+  "schemes" : [
+    {
+      "pointer" : {
+        "disableAcceleration": true,
+        "acceleration" : 3.8587,
+        "speed" : 0.0787
+      },
+      "if" : {
+        "device" : {
+          "productName" : "MX Master 3S",
+          "serialNumber" : "4F47E9EA",
+          "productID" : "0xb034",
+          "category" : "mouse",
+          "vendorID" : "0x46d"
+        }
+      },
+      "scrolling" : {
+        "distance" : {
+          "vertical" : "auto"
+        }
+      }
+    }
+  ]
+}
