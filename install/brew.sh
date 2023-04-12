@@ -96,6 +96,9 @@ install switchaudio-osx
 step "install wallpaper"
 install wallpaper
 
+step "install mas"
+install mas
+
 # LANGUAGES/DB/TOOLS
 
 step "Installing dependencies/apps/go if not already installed"
@@ -254,9 +257,6 @@ install loom
 
 step "Installing apps/numi if not already installed"
 install numi
-
-step "Installing apps/obsidian if not already installed"
-install obsidian
 
 step "Installing apps/pika if not already installed"
 install pika

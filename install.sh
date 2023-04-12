@@ -47,7 +47,7 @@ else
 fi
 
 # HOMEBREW PACKAGES
-step "Installing homebrew packages..."
+step "Running homebrew install script..."
 sh instal/brew.sh --unattended
 
 # OH MY ZSH AND ZSH PLUGINS
@@ -63,6 +63,17 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosugges
 
 step "Installing dependencies/shell/zsh-syntax-highlighting"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+
+
+# # APP STORE PACKAGES
+# ### CAN'T INSTALL WITHOUT LOGIN WHICH ISN'T WORKING ATM ###
+# # Over time, Apple has changed the APIs used by mas to manage App Store apps, limiting its capabilities. Please sign in or purchase apps using the App Store app instead. Subsequent redownloads can be performed with mas install.
+
+# # ⛔️ The signin command is not supported as of macOS 10.13 High Sierra. #164
+# # ⛔️ The purchase command is not supported as of macOS 10.15 Catalina. #289
+# # ⛔️ The account command is not supported as of macOS 12 Monterey. #417
+# step "Running app store install script..."
+# sh instal/mas.sh --unattended
 
 # DOTFILES
 
