@@ -7,7 +7,7 @@ if [[ $CHARGING != "" ]]; then
   exit 0
 fi
 case ${BATT_PERCENT} in
-   100) ICON=""; COLOR="0xff9ac868";;
+   100) ICON=""; COLOR="0xff9ac868" ;;
     9[0-9]) ICON=""; COLOR="0xff9ac868" ;;
     8[0-9]) ICON=""; COLOR="0xff9ac868" ;;
     7[0-9]) ICON=""; COLOR="0xfffbc62d" ;;

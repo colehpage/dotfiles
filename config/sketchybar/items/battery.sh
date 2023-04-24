@@ -1,5 +1,5 @@
 sketchybar --add item battery right                                                 \
-           --set battery update_freq=1                                           \
+           --set battery update_freq=120                                           \
                        icon.font="Font Awesome 6 Free:Solid:15.4"                  \
                        icon.padding_right=4                                        \
                        icon.color=0xff9ac868                                       \

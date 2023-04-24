@@ -13,7 +13,7 @@ calendar=(
   background.height=33
   background.corner_radius=20
   background.padding_right=8
-  update_freq=30
+  update_freq=3600
   script="$PLUGIN_DIR/calendar.sh"
   click_script="$PLUGIN_DIR/zen.sh"
 )

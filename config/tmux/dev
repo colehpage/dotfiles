@@ -1,0 +1,18 @@
+select-pane -t 1 # select the first pane
+split-window -h -p 66 # split into two panes 33:66 vertically
+split-window -h # split right pane into two panes 50:50 vertically leaving 3 panes 33:33:33
+select-pane -t 1 # select the first pane
+split-window -v -p 50 # split it into two halves
+select-pane -t 3 # select the now third pane (second vertical)
+split-window -v -p 50 # split it into two halves
+
+select-pane -t 1 -T "Backend Running"
+send-keys -t 1 "backend; yarn dev" Enter
+select-pane -t 2 -T "Backend Open"
+send-keys -t 2 "backend" Enter
+select-pane -t 3 -T "Frontend Running"
+send-keys -t 3 "frontend; yarn start:fast" Enter
+select-pane -t 4 -T "Frontend Open"
+send-keys -t 4 "frontend" Enter
+
+select-pane -t 5 # go to the fifth pane

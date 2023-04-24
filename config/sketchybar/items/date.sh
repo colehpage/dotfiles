@@ -1,5 +1,5 @@
 sketchybar --add item date right                                                  \
-           --set date update_freq=1                                               \
+           --set date update_freq=3600                                               \
                        icon=""                                                   \
                        icon.font="Font Awesome 6 Free:Solid:15.4"                  \
                        icon.padding_right=4                                        \

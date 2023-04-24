@@ -94,7 +94,7 @@ sketchybar --animate sin 30 --bar y_offset=-100 y_offset=15
 . "$ITEM_DIR/brew.sh"   # homebrew updates
 . "$ITEM_DIR/sound.sh"     # sound
 . "$ITEM_DIR/battery.sh"   # battery
-. "$ITEM_DIR/playing.sh"   # playing on spotify
+# . "$ITEM_DIR/playing.sh"   # playing on spotify
 
 # Forcing all item scripts to run (never do this outside of sketchybarrc)
 sketchybar --update

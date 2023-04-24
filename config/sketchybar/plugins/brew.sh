@@ -19,8 +19,10 @@ case "$COUNT" in
   ;;
 esac
 
-sketchybar --set $NAME label=$COUNT icon.color=$COLOR
-
+sketchybar -m \
+--set $NAME label=$COUNT \
+--set $NAME icon.color=$COLOR \
+--set $NAME label.color="$COLOR"
 
 # SIMPLE VERSION JUST COUNT NO COLOR #
 

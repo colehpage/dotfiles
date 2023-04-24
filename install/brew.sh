@@ -279,6 +279,9 @@ install visual-studio-code
 step "Installing apps/zoom if not already installed"
 install zoom
 
+step "Installing apps/zoom if not already installed"
+install remarkable
+
 # Install homebrew packages individually
 
 # Install homebrew packages from Brewfile
