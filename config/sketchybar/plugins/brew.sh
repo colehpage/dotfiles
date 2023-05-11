@@ -1,19 +1,19 @@
 #!/bin/bash
 
-source "$HOME/.config/sketchybar/colors.sh"
+source "$CONFIG_DIR/colors.sh"
 
 COUNT=$(brew outdated | wc -l | tr -d ' ')
 
 COLOR=$RED
 
 case "$COUNT" in
-  [3-5][0-9]) COLOR=$ORANGE
+  [3-5][0-9]) COLOR=$LUXCIUM_ORANGE
   ;;
-  [1-2][0-9]) COLOR=$YELLOW
+  [1-2][0-9]) COLOR=$LUXCIUM_YELLOW
   ;;
-  [1-9]) COLOR=$WHITE
+  [1-9]) COLOR=$LUXCIUM_GREENYELLOW
   ;;
-  0) COLOR=$GREEN
+  0) COLOR=$BREW_COLOR
     #  COUNT=􀆅 # CHECKMARK
     COUNT=0
   ;;

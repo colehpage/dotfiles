@@ -1,22 +1,20 @@
-#    _____ _    _ _____  
-#   / ____| |  | |  __ \ 
-#  | |    | |__| | |__) | github: https://github.com/colehpage
-#  | |    |  __  |  ___/  dotfiles: https://github.com/colehpage/Dotfiles
-#  | |____| |  | | |      website: https://colehpage.com
-#   \_____|_|  |_|_|     
+#!/bin/bash
 
-source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
-source "$HOME/.config/sketchybar/icons.sh" # Loads all defined icons
+source "$CONFIG_DIR/colors.sh" # Loads all defined colors
+source "$CONFIG_DIR/icons.sh" # Loads all defined icons
 
-### Store plugin and item directories in variables ###
-ITEM_DIR="$HOME/.config/sketchybar/items"       # Directory where the items are configured
-PLUGIN_DIR="$HOME/.config/sketchybar/plugins"   # Directory where all the plugin scripts are stored
+ITEM_DIR="$CONFIG_DIR/items" # Directory where the items are configured
+PLUGIN_DIR="$CONFIG_DIR/plugins" # Directory where all the plugin scripts are stored
 
 ### Define defult font ###
-FONT="Monocraft" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
+FONT="SF Pro" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
 
 ### Padding ###
-PADDINGS=3  # All elements use this padidng
+PADDINGS=2  # All elements use this padidng
+
+### MISC STYLING
+SPACE_BORDER_RADIUS=2
+ITEM_BORDER_RADIUS=2
 
 # Unload the macOS on screen indicator overlay for volume change
 launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
@@ -35,22 +33,15 @@ bar=(
   padding_left=4
   padding_right=4
   topmost=off
-  font_smoothing=off
-  y_offset=-100
-#   padding_right=10
-#   padding_left=10
-#   y_offset=-5
-#   corner_radius=14
-#   border_width=0
-#   color=0xff1a1c26
-#   notch_width=0
+  font_smoothing=on
+  y_offset=15
+  corner_radius=2
 )
 
 sketchybar --bar "${bar[@]}"
 
 # Setting up default values
 defaults=(
-  drawing=on
   updates=when_shown
   icon.font="$FONT:Bold:14.0"
   icon.color=$ICON_COLOR
@@ -63,10 +54,10 @@ defaults=(
   padding_right=$PADDINGS
   padding_left=$PADDINGS
   background.height=26
-  background.corner_radius=9
+  background.corner_radius=$SPACE_BORDER_RADIUS
   background.border_width=2
   popup.background.border_width=2
-  popup.background.corner_radius=9
+  popup.background.corner_radius=$SPACE_BORDER_RADIUS
   popup.background.border_color=$POPUP_BORDER_COLOR
   popup.background.color=$POPUP_BACKGROUND_COLOR
   popup.blur_radius=20
@@ -75,26 +66,23 @@ defaults=(
 
 sketchybar --default "${defaults[@]}"
 
-sketchybar --animate sin 30 --bar y_offset=-100 y_offset=15
+# Left
+source "$ITEM_DIR/apple.sh"
+source "$ITEM_DIR/system.sh"
+# source "$ITEM_DIR/yabai.sh"
+source "$ITEM_DIR/spotify.sh"
+# source "$ITEM_DIR/front_app.sh"
 
-### Left ###
-. "$ITEM_DIR/onosendai_menu.sh" # onosendai logo
-. "$ITEM_DIR/system.sh"    # resources monitor
-. "$ITEM_DIR/spotify.sh"   # spotify widget
-# . "$ITEM_DIR/clipboard.sh"   # spotify widget
+# Center
+source "$ITEM_DIR/spaces.sh"
 
-### Center ###
-. "$ITEM_DIR/spaces.sh"    # workspaces
-# . "$ITEM_DIR/weather.sh"    # weather
-# . "$ITEM_DIR/moon.sh"    # moon
-
-### Right ###
-. "$ITEM_DIR/time.sh"      # time
-. "$ITEM_DIR/calendar.sh"      # calendar
-. "$ITEM_DIR/brew.sh"   # homebrew updates
-. "$ITEM_DIR/sound.sh"     # sound
-. "$ITEM_DIR/battery.sh"   # battery
-# . "$ITEM_DIR/playing.sh"   # playing on spotify
+# Right
+source "$ITEM_DIR/time.sh"
+source "$ITEM_DIR/calendar.sh"
+source "$ITEM_DIR/brew.sh"
+source "$ITEM_DIR/github.sh"
+source "$ITEM_DIR/battery.sh"
+source "$ITEM_DIR/volume.sh"
 
 # Forcing all item scripts to run (never do this outside of sketchybarrc)
 sketchybar --update
