@@ -8,6 +8,9 @@ lalt - 5 : sketchybar --trigger windows_on_spaces; yabai -m space --focus 5
 lalt - 6 : sketchybar --trigger windows_on_spaces; yabai -m space --focus 6
 lalt - 7 : sketchybar --trigger windows_on_spaces; yabai -m space --focus 7
 lalt - 8 : sketchybar --trigger windows_on_spaces; yabai -m space --focus 8
+lalt - 9 : sketchybar --trigger windows_on_spaces; yabai -m space --focus 9
+lalt - 0 : sketchybar --trigger windows_on_spaces; yabai -m space --focus 10
+
 lalt - right : yabai -m space --focus next   # Focus the space on the right
 lalt - left : yabai -m space --focus prev    # Focus the space on the left
 
@@ -22,6 +25,9 @@ shift + lalt - 5 : yabai -m window --space 5; sketchybar --trigger windows_on_sp
 shift + lalt - 6 : yabai -m window --space 6; sketchybar --trigger windows_on_spaces; yabai -m space --focus 6
 shift + lalt - 7 : yabai -m window --space 7; sketchybar --trigger windows_on_spaces; yabai -m space --focus 7
 shift + lalt - 8 : yabai -m window --space 8; sketchybar --trigger windows_on_spaces; yabai -m space --focus 8
+shift + lalt - 9 : yabai -m window --space 9; sketchybar --trigger windows_on_spaces; yabai -m space --focus 9
+shift + lalt - 0 : yabai -m window --space 10; sketchybar --trigger windows_on_spaces; yabai -m space --focus 10
+
 shift + lalt - left : yabai -m window --space prev; yabai -m space --focus prev    # To the space on the left
 shift + lalt - right : yabai -m window --space next; yabai -m space --focus next   # To the spave on the right
 
