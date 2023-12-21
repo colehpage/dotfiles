@@ -25,7 +25,7 @@ $HOME/.config/yabai/create_spaces.sh
 yabai -m config top_padding 0
 
 # global settings
-yabai -m config mouse_follows_focus          on
+yabai -m config mouse_follows_focus          off
 yabai -m config focus_follows_mouse          off
 
 yabai -m config window_origin_display        default
