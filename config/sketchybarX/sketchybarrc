@@ -1,10 +1,18 @@
 #!/bin/bash
 
+#    _____ _    _ _____  
+#   / ____| |  | |  __ \ 
+#  | |    | |__| | |__) | github: https://github.com/colehpage
+#  | |    |  __  |  ___/  dotfiles: https://github.com/colehpage/Dotfiles
+#  | |____| |  | | |      website: https://colehpage.com
+#   \_____|_|  |_|_|     
+
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 source "$CONFIG_DIR/icons.sh" # Loads all defined icons
 
-ITEM_DIR="$CONFIG_DIR/items" # Directory where the items are configured
-PLUGIN_DIR="$CONFIG_DIR/plugins" # Directory where all the plugin scripts are stored
+### Store plugin and item directories in variables ###
+ITEM_DIR="$CONFIG_DIR/items"       # Directory where the items are configured
+PLUGIN_DIR="$CONFIG_DIR/plugins"   # Directory where all the plugin scripts are stored
 
 ### Define defult font ###
 FONT="SF Pro" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
@@ -23,19 +31,19 @@ launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /
 bar=(
   height=50
   color=$BAR_COLOR
-  border_width=1
-  border_color=$BAR_OUTER_BORDER_COLOR
+  border_width=2
+  border_color=$BAR_BORDER_COLOR
   shadow=off
   position=top
   sticky=on
-  margin=8
+  margin=15
   blur_radius=0
   padding_left=4
   padding_right=4
   topmost=off
   font_smoothing=on
-  y_offset=8
-  corner_radius=6
+  y_offset=15
+  corner_radius=2
 )
 
 sketchybar --bar "${bar[@]}"
@@ -66,23 +74,20 @@ defaults=(
 
 sketchybar --default "${defaults[@]}"
 
-# Left
-source "$ITEM_DIR/apple.sh"
-source "$ITEM_DIR/system.sh"
-# source "$ITEM_DIR/yabai.sh"
-source "$ITEM_DIR/spotify.sh"
-# source "$ITEM_DIR/front_app.sh"
+### Left ###
+# source "$ITEM_DIR/system.sh"    # resources monitor
+# source "$ITEM_DIR/spotify.sh"   # spotify widget
 
-# Center
-source "$ITEM_DIR/spaces.sh"
+### Center ###
+# source "$ITEM_DIR/spaces.sh"    # workspaces
 
-# Right
-source "$ITEM_DIR/time.sh"
-source "$ITEM_DIR/calendar.sh"
-source "$ITEM_DIR/brew.sh"
-source "$ITEM_DIR/github.sh"
-source "$ITEM_DIR/battery.sh"
-source "$ITEM_DIR/volume.sh"
+### Right ###
+# source "$ITEM_DIR/time.sh"      # time
+# source "$ITEM_DIR/calendar.sh"      # calendar
+# source "$ITEM_DIR/brew.sh"   # homebrew updates
+# source "$ITEM_DIR/sound.sh"     # sound
+source "$ITEM_DIR/volume.sh"     # volume
+# source "$ITEM_DIR/battery.sh"   # battery
 
 # Forcing all item scripts to run (never do this outside of sketchybarrc)
 sketchybar --update

@@ -1,7 +1,20 @@
 {
-  "$schema" : "https:\/\/schema.linearmouse.app\/0.9.5",
   "schemes" : [
     {
+      "if" : {
+        "device" : {
+          "vendorID" : "0x46d",
+          "category" : "mouse",
+          "productName" : "MX Master 3S",
+          "productID" : "0xb034",
+          "serialNumber" : "4F47E9EA"
+        }
+      },
+      "pointer" : {
+        "speed" : 0.0787,
+        "disableAcceleration" : true,
+        "acceleration" : 2.0496
+      },
       "scrolling" : {
         "reverse" : {
           "vertical" : true
@@ -9,36 +22,30 @@
         "distance" : {
           "vertical" : "auto"
         }
-      },
-      "if" : {
-        "device" : {
-          "vendorID" : "0x46d",
-          "serialNumber" : "4F47E9EA",
-          "productID" : "0xb034",
-          "category" : "mouse",
-          "productName" : "MX Master 3S"
-        }
-      },
-      "pointer" : {
-        "disableAcceleration" : true,
-        "acceleration" : 3.8587,
-        "speed" : 0.0787
       }
     },
     {
-      "scrolling" : {
-        "reverse" : {
-          "vertical" : true
-        }
+      "pointer" : {
+        "acceleration" : 0.7,
+        "speed" : 0.13
       },
       "if" : {
         "device" : {
-          "category" : "mouse",
           "productName" : "USB Receiver",
           "vendorID" : "0x46d",
-          "productID" : "0xc548"
+          "productID" : "0xc548",
+          "category" : "mouse"
+        }
+      },
+      "scrolling" : {
+        "reverse" : {
+          "vertical" : true
+        },
+        "acceleration" : {
+          "vertical" : 1
         }
       }
     }
-  ]
+  ],
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.9.5"
 }

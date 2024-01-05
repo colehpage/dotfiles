@@ -1,0 +1,1 @@
+/Users/colehpage/Library/Application Support/nushell/env.nu
