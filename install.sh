@@ -48,7 +48,7 @@ fi
 
 # HOMEBREW PACKAGES
 step "Running homebrew install script..."
-sh instal/brew.sh --unattended
+sh install/brew.sh --unattended
 
 # OH MY ZSH AND ZSH PLUGINS
 
