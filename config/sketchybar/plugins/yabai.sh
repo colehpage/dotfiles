@@ -3,6 +3,7 @@
 window_state() {
   source "$CONFIG_DIR/colors.sh"
   source "$CONFIG_DIR/icons.sh"
+    source "$HOME/.config/colors.sh"
 
   WINDOW=$(yabai -m query --windows --window)
   STACK_INDEX=$(echo "$WINDOW" | jq '.["stack-index"]')
@@ -12,18 +13,18 @@ window_state() {
 
   if [ "$(echo "$WINDOW" | jq '.["is-floating"]')" = "true" ]; then
     ICON+=$YABAI_FLOAT
-    COLOR=$MAGENTA
+    COLOR=$COLOR_MAGENTA
   elif [ "$(echo "$WINDOW" | jq '.["has-fullscreen-zoom"]')" = "true" ]; then
     ICON+=$YABAI_FULLSCREEN_ZOOM
-    COLOR=$GREEN
+    COLOR=$COLOR_GREEN
   elif [ "$(echo "$WINDOW" | jq '.["has-parent-zoom"]')" = "true" ]; then
     ICON+=$YABAI_PARENT_ZOOM
-    COLOR=$BLUE
+    COLOR=$COLOR_BLUE
   elif [[ $STACK_INDEX -gt 0 ]]; then
     LAST_STACK_INDEX=$(yabai -m query --windows --window stack.last | jq '.["stack-index"]')
     ICON+=$YABAI_STACK
     LABEL="$(printf "[%s/%s]" "$STACK_INDEX" "$LAST_STACK_INDEX")"
-    COLOR=$RED
+    COLOR=$COLOR_RED
   fi
 
   args=(--animate sin 10 --bar border_color=$COLOR

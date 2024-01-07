@@ -2,9 +2,11 @@
 
 update() {
   source "$CONFIG_DIR/colors.sh"
+    source "$HOME/.config/colors.sh"
+
   COLOR=$BACKGROUND_2
   if [ "$SELECTED" = "true" ]; then
-    COLOR=$GREY
+    COLOR=$COLOR_GREY
   fi
   sketchybar --set $NAME icon.highlight=$SELECTED label.highlight="$SELECTED" background.border_color=$COLOR
 }

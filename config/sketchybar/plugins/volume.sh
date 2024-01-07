@@ -4,6 +4,8 @@ WIDTH=100
 
 volume_change() {
   source "$CONFIG_DIR/icons.sh"
+    source "$HOME/.config/colors.sh"
+
   case $INFO in
     [6-9][0-9]|100) ICON=$VOLUME_100
     ;;
@@ -18,7 +20,7 @@ volume_change() {
     *) ICON=$VOLUME_100
   esac
 
-  sketchybar --set volume_icon label=$ICON color=$GREEN
+  sketchybar --set volume_icon label=$ICON color=$COLOR_GREEN
 
   sketchybar --set $NAME slider.percentage=$INFO \
              --animate tanh 30 --set $NAME slider.width=$WIDTH 

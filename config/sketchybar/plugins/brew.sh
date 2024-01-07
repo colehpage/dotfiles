@@ -1,17 +1,18 @@
 #!/bin/bash
 
 source "$CONFIG_DIR/colors.sh"
+source "$HOME/.config/colors.sh"
 
 COUNT=$(brew outdated | wc -l | tr -d ' ')
 
-COLOR=$RED
+COLOR=$COLOR_RED
 
 case "$COUNT" in
-  [3-5][0-9]) COLOR=$LUXCIUM_ORANGE
+  [3-5][0-9]) COLOR=$COLOR_ORANGE
   ;;
-  [1-2][0-9]) COLOR=$LUXCIUM_YELLOW
+  [1-2][0-9]) COLOR=$COLOR_YELLOW
   ;;
-  [1-9]) COLOR=$LUXCIUM_GREENYELLOW
+  [1-9]) COLOR=$COLOR_GREEN
   ;;
   0) COLOR=$BREW_COLOR
     #  COUNT=􀆅 # CHECKMARK

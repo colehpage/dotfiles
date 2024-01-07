@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source "$HOME/.config/colors.sh"
+
 SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11" "12" "13" "14" "15")
 SPACE_ICONS_MAP=("" "" "" "" "" "" "" "" "" "" "11" "12" "13" "14" "15")
 # Destroy space on right click, focus space on left click.
@@ -21,10 +23,10 @@ do
     padding_left=2
     padding_right=2
     # label.padding_right=20
-    icon.color=$WHITE
-    icon.highlight_color=$RED
-    label.color=$GREY
-    label.highlight_color=$WHITE
+    icon.color=$COLOR_WHITE
+    icon.highlight_color=$COLOR_RED
+    label.color=$COLOR_GREY
+    label.highlight_color=$COLOR_WHITE
     label.font="sketchybar-app-font:Regular:16.0"
     label.y_offset=-1
     background.color=$BACKGROUND_1
@@ -53,7 +55,7 @@ separator=(
   label.drawing=on
   associated_display=active
   click_script='yabai -m space --create && sketchybar --trigger space_change'
-  icon.color=$WHITE
+  icon.color=$COLOR_WHITE
 )
 
 sketchybar --add bracket spaces_bracket '/space\..*/'  \

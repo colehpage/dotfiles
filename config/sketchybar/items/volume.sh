@@ -1,11 +1,13 @@
 #!/bin/bash
 
+source "$HOME/.config/colors.sh"
+
 volume_slider=(
   script="$PLUGIN_DIR/volume.sh"
   updates=on
   label.drawing=off
   icon.drawing=off
-  slider.highlight_color=$GREEN
+  slider.highlight_color=$COLOR_GREEN
   slider.background.height=5
   slider.background.corner_radius=3
   slider.background.color=$ICON_COLOR
