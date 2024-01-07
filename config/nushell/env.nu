@@ -107,8 +107,11 @@ $env.NU_PLUGIN_DIRS = [
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
 
+$env.AOC_SESSION = '53616c7465645f5f7d11970774bb4c7cd7372838acaaf148b10355f09f76f2cbf7e98685c732e51a20f1f696ea41e0f242f5ddc56d8cb688d34b2fff65716053'
+
+$env.ADVENT_OF_CODE_COOKIE = '53616c7465645f5f7d11970774bb4c7cd7372838acaaf148b10355f09f76f2cbf7e98685c732e51a20f1f696ea41e0f242f5ddc56d8cb688d34b2fff65716053'
+
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
 
-# replace is a patch for current broken code, will be fixed down the line and not needed
 zoxide init nushell | str replace "def-env" "def --env" --all | save -f ~/.zoxide.nu

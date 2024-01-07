@@ -23,19 +23,19 @@ launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /
 bar=(
   height=50
   color=$BAR_COLOR
-  border_width=1
+  border_width=1.5
   border_color=$BAR_OUTER_BORDER_COLOR
   shadow=off
   position=top
   sticky=on
-  margin=8
+  margin=15
   blur_radius=0
   padding_left=4
   padding_right=4
   topmost=off
   font_smoothing=on
-  y_offset=8
-  corner_radius=6
+  y_offset=12
+  corner_radius=8
 )
 
 sketchybar --bar "${bar[@]}"
@@ -69,6 +69,7 @@ sketchybar --default "${defaults[@]}"
 # Left
 source "$ITEM_DIR/apple.sh"
 source "$ITEM_DIR/system.sh"
+source "$ITEM_DIR/wifi.sh"
 # source "$ITEM_DIR/yabai.sh"
 source "$ITEM_DIR/spotify.sh"
 # source "$ITEM_DIR/front_app.sh"

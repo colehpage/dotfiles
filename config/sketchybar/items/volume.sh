@@ -18,6 +18,7 @@ volume_icon=(
   click_script="$PLUGIN_DIR/volume_click.sh"
   padding_left=10
   icon=$VOLUME_100
+  icon.color=$ITEM_BACKGROUND_COLOR
   icon.width=0
   icon.align=left
   icon.font="$FONT:Regular:14.0"

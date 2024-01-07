@@ -861,6 +861,10 @@ alias aoc = cd ~/workspace/advent-of-code
 
 alias n = nnn
 
+## RANGER
+
+alias r = ranger
+
 ########################
 #      ALIASES END     #
 ########################
