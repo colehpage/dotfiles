@@ -3,7 +3,7 @@
 source "$HOME/.config/colors.sh"
 
 SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11" "12" "13" "14" "15")
-SPACE_ICONS_MAP=("" "" "" "󰏰" "" "󰁀" "" "" "󰄜" "󰌐" "11" "12" "13" "14" "15")
+SPACE_ICONS_MAP=("󰆍" "󰇧" "󰨞" "" "" "" "" "" "󰠱" "" "11" "12" "13" "14" "15")
 # Destroy space on right click, focus space on left click.
 # New space by left clicking separator (>)
 

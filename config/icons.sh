@@ -57,6 +57,9 @@ export ICONS_BATTERY=(󰂎 󰁺 󰁻 󰁼 󰁽 󰁾 󰁿 󰂀 󰂁 󰂂 󰁹)
 export ICONS_BATTERY_CHARGING=(󰢟 󰢜 󰂆 󰂇 󰂈 󰢝 󰂉 󰢞 󰂊 󰂋 󰂅)
 
 export ICON_SWAP=󰁯
-export ICON_RAM=󰓅
-export ICON_DISK=󰋊 # disk utility
-export ICON_CPU=󰘚
+# export ICON_RAM=󰓅
+export ICON_RAM=
+# export ICON_DISK=󰋊 # disk utility
+export ICON_DISK=
+# export ICON_CPU=󰘚
+export ICON_CPU=
