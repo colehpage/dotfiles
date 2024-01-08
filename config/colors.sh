@@ -20,7 +20,7 @@ export COLOR_MAGENTA=0xe0bb9af7
 export COLOR_CYAN=0xe07dcfff
 export COLOR_WHITE=0xe0d4daf2
 
-export COLOR_ORANGE=0xffFE8018
+export COLOR_ORANGE=0xffff9e64
 export COLOR_PURPLE=0xff9d7cd8
 
 export COLOR_BLACK_BRIGHT=0xe01a2f8f
