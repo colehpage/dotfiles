@@ -63,7 +63,7 @@ TODO
 
 # MultiPlexer
 
-## [Tmux](https://github.com/tmux/tmux/wiki)
+## [Zellij](https://github.com/zellij-org/zellij)
 
 TODO
 
