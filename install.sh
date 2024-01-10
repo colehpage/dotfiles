@@ -1,130 +1,136 @@
-#! /bin/sh
+#!/usr/bin/env bash
 
-step () {
-    final=$(echo "$@")
-    plus=$(expr ${#final} + 6)
+set -o errexit
+set -o nounset
+set -o pipefail
 
-    printhashtags () {
-    for i in $(seq $plus); do
-        printf "#"
-    done
+. scripts/utils.sh
+. scripts/brew.sh
+. scripts/apps.sh
+. scripts/cli.sh
+. scripts/config.sh
+. scripts/osx.sh
+. scripts/fonts.sh
+. scripts/packages.sh
+. scripts/oh-my-zsh.sh
 
-    }
-
-    echo
-    printhashtags
-    echo "\n## $@ ##"
-    printhashtags
-    echo
+cleanup() {
+	err "Last command failed"
+	info "Finishing..."
 }
 
-step "Installing xcode command line tools if not already installed"
-xcode-select -p &> /dev/null
-if [ $? -ne 0 ]; then
-  echo "Xcode CLI tools not found. Installing them..."
-  touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
-  PROD=$(softwareupdate -l |
-    grep "\*.*Command Line" |
-    head -n 1 | awk -F"*" '{print $2}' |
-    sed -e 's/^ *//' |
-    tr -d '\n')
-  softwareupdate -i "$PROD" -v;
-else
-  echo "'xcode command line tools' is already installed, you're set."
-fi
+wait_input() {
+	read -p -r "Press enter to continue: "
+}
 
-# HOMEBREW
+main() {
+	info "Installing ..."
 
-step "Installing homebrew if not already installed"
-if ! command -v brew &> /dev/null
-then
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/$(whoami)/.zprofile
-   eval "$(/opt/homebrew/bin/brew shellenv)"
-else
-   echo "brew is already installed, you're set."
-   sleep 1
-fi
+	info "################################################################################"
+	info "Homebrew Packages"
+	info "################################################################################"
+	wait_input
 
-# HOMEBREW PACKAGES
-step "Running homebrew install script..."
-sh install/brew.sh --unattended
+    # use install script to install homebrew, mas, vscode packages
+	install_packages
 
-# OH MY ZSH AND ZSH PLUGINS
+    # Install homebrew packages from Brewfile
+    # uncomment for simplified install
+    # brew bundle install
 
-step "Installing dependencies/shell/oh-my-zsh"
-cd ~/
-wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-sh install.sh --unattended
-rm -rf install.sh
+	post_install_packages
+	success "Finished installing Homebrew packages"
 
-step "Installing dependencies/shell/zsh-autosuggestions"
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+	info "################################################################################"
+	info "Homebrew Fonts"
+	info "################################################################################"
+	wait_input
+	install_fonts
+	success "Finished installing fonts"
 
-step "Installing dependencies/shell/zsh-syntax-highlighting"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+	info "################################################################################"
+	info "Oh-my-zsh"
+	info "################################################################################"
+	wait_input
+	install_oh_my_zsh
+	success "Finished installing Oh-my-zsh"
 
+	info "################################################################################"
+	info "MacOS Apps"
+	info "################################################################################"
+	wait_input
+	install_macos_apps
 
-# # APP STORE PACKAGES
-# ### CAN'T INSTALL WITHOUT LOGIN WHICH ISN'T WORKING ATM ###
-# # Over time, Apple has changed the APIs used by mas to manage App Store apps, limiting its capabilities. Please sign in or purchase apps using the App Store app instead. Subsequent redownloads can be performed with mas install.
+	install_masApps
+	success "Finished installing macOS apps"
 
-# # ⛔️ The signin command is not supported as of macOS 10.13 High Sierra. #164
-# # ⛔️ The purchase command is not supported as of macOS 10.15 Catalina. #289
-# # ⛔️ The account command is not supported as of macOS 12 Monterey. #417
-# step "Running app store install script..."
-# sh instal/mas.sh --unattended
+	info "################################################################################"
+	info "PiP modules"
+	info "################################################################################"
+	wait_input
+	install_python_packages
+	success "Finished installing python packages"
 
-# DOTFILES
+	info "################################################################################"
+	info "Rust tools"
+	info "################################################################################"
+	wait_input
+	install_rust_tools
+	success "Finished installing Rust tools"
 
-step "Cloning my dotfiles repository"
-git clone https://github.com/colehpage/dotfiles ~/dotfiles && cd dotfiles
+	info "################################################################################"
+	info "Golang tools"
+	info "################################################################################"
+	wait_input
+	install_go_tools
+	success "Finished installing Golang tools"
 
-step "Moving everything to the right place"
-configs_home=("alacritty" "cava" "gh" "linearmouse" "lsd" "neofetch" "nnn" "nvim" "raycast" "sketchybar" "skhd" "spicetify" "tmux" "yabai")
-for i in "${!configs_home[@]}"; do
-    cp -r ~/dotfiles/config/${CONFIGS_HOME[i]} ~/.config/
-    echo "Moved ${configs_home[i]}"
-done
+	info "################################################################################"
+	info "Configuration"
+	info "################################################################################"
+	wait_input
 
-cp config/zsh/.zshrc ~/.zshrc
-echo "Moved zsh"
+	setup_osx
+	success "Finished configuring MacOS defaults. NOTE: A restart is needed"
 
-cp config/starship/starship.toml ~/.config/starship.toml
-echo "Moved starship"
+	stow_dotfiles
+	success "Finished stowing dotfiles"
 
-# OSX SETTINGS
+	info "################################################################################"
+	info "Crating development folders"
+	info "################################################################################"
+	mkdir -p ~/workspace/public
+	mkdir -p ~/workspace/personal
 
-step "Hiding Dock and menu bar"
-read -p "Is your dock currently hidden? (y/n)" dock_hide
-if [ $dock_hide == "n" ]; then
-  osascript -e "tell application \"System Events\" to set the autohide of the dock preferences to true"
-fi
+	info "################################################################################"
+	info "SSH Key"
+	info "################################################################################"
+	setup_github_ssh
+	success "Finished setting up SSH Key"
 
-read -p "Is your menu bar currently hidden? (y/n)" menu_hide
-if [ $menu_hide == "n" ]; then
-    osascript -e 'tell application "System Events"
-    tell dock preferences to set autohide menu bar to not autohide menu bar
-    end tell'
-fi
+	if ! hash rustc &>/dev/null; then
+		info "################################################################################"
+		info "Rust Setup"
+		info "################################################################################"
+		wait_input
+		rustup-init
+	fi
 
-# SYMLINKS (?)
-# step "Creating symlinks"
-# sh install/link.sh --unattended
+	success "Done"
 
-step "Standard OSX settings tweaks"
-sh install/osx.sh --unattended
+	info "System needs to restart. Restart?"
 
-step "make sure dark mode is activated"
-osascript -e 'tell application "System Events"
-    tell appearance preferences
-        set dark mode to true
-    end tell
-end tell'
+	select yn in "y" "n"; do
+		case $yn in
+		y)
+			sudo shutdown -r now
+			break
+			;;
+		n) exit ;;
+		esac
+	done
+}
 
-step "Starting services"
-brew services restart sketchybar
-brew services restart yabai
-brew services restart skhd
+trap cleanup SIGINT SIGTERM ERR EXIT
 
-step "All done!"
+main
