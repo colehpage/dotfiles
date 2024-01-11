@@ -139,10 +139,6 @@ mas "Amphetamine", id: 937984704
 mas "AtlasVPN", id: 1525872949
 mas "Boop", id: 1518425043
 mas "Hand Mirror", id: 1502839586
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
 mas "reMarkable", id: 1276493162
 mas "Xcode", id: 497799835
 vscode "aaron-bond.better-comments"
