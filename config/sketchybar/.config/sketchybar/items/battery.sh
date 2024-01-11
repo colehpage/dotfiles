@@ -1,8 +1,7 @@
 #!/bin/bash
 
 battery=(
-  update_freq=60
-  icon=""
+  update_freq=1
   icon.font="Font Awesome 6 Free:Solid:15.4"
   icon.padding_right=4
   icon.color=$BATTERY_COLOR

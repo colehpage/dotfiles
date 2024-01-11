@@ -107,9 +107,20 @@ $env.NU_PLUGIN_DIRS = [
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
 
-$env.AOC_SESSION = '[SESSION TOKEN]'
+$env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/opt/openjdk/bin')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/bin')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/sbin')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/opt/fzf/bin')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '/Users/colehpage/Library/pnpm')
 
-$env.ADVENT_OF_CODE_COOKIE = '[SESSION TOKEN]'
+# $env.PATH = ($env.PATH | split row (char esep) | prepend '')
+
+$env.PNPM_HOME = /Users/colehpage/Library/pnpm
+
+$env.AOC_SESSION = '53616c7465645f5f7d11970774bb4c7cd7372838acaaf148b10355f09f76f2cbf7e98685c732e51a20f1f696ea41e0f242f5ddc56d8cb688d34b2fff65716053'
+$env.ADVENT_OF_CODE_COOKIE = '53616c7465645f5f7d11970774bb4c7cd7372838acaaf148b10355f09f76f2cbf7e98685c732e51a20f1f696ea41e0f242f5ddc56d8cb688d34b2fff65716053'
+
+$env.EDITOR = nvim
 
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
