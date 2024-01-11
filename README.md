@@ -22,7 +22,7 @@ TODO
 
 Run the `dotfiles` script:
 ```sh
-curl -sO https://raw.githubusercontent.com/colehpage/.dotfiles/main/dotfiles
+curl -sO https://raw.githubusercontent.com/colehpage/.dotfiles/master/dotfiles
 ```
 
 # Scripts

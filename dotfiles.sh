@@ -2,8 +2,8 @@
 
 set -o errexit
 
-REPO_URL=https://github.com/protiumx/.dotfiles.git
-REPO_PATH="$HOME/.dotfiles"
+REPO_URL=https://github.com/colehpage/.dotfiles.git
+REPO_PATH="$HOME/workspace/dotfiles"
 
 reset_color=$(tput sgr 0)
 
