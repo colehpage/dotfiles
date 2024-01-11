@@ -17,22 +17,20 @@ stow_dotfiles() {
 		".config/starship.toml"
 		".config/icons.sh"
 		".config/colors.sh"
-		".gitconfig"
-		".profile*"
-        ".zoxide.nu"
 		".zshrc"
-		".zshenv"
-		".zprofile"
 	)
 	local folders=(
         ".config/alacritty"
         ".config/borders"
+        ".config/btop"
         ".config/cava"
         ".config/gh"
         ".config/karabiner"
         ".config/linearmouse"
+        ".config/lsd"
         ".config/neofetch"
         ".config/nushell"
+        ".config/nnn"
         ".config/nvim"
         ".config/ranger"
         ".config/sketchybar"
@@ -55,7 +53,7 @@ stow_dotfiles() {
 	done
 
 	# shellcheck disable=SC2155
-	local to_stow="$(find stow -maxdepth 1 -type d -mindepth 1 | awk -F "/" '{print $NF}' ORS=' ')"
+	local to_stow="$(find config -maxdepth 1 -type d -mindepth 1 | awk -F "/" '{print $NF}' ORS=' ')"
 	info "Stowing: $to_stow"
-	stow -d stow --verbose 1 --target "$HOME" "$to_stow"
+	stow -d config --verbose 1 --target "$HOME" $to_stow
 }
