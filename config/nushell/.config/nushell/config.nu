@@ -865,6 +865,10 @@ alias n = nnn
 
 alias r = ranger
 
+## THEFUCK
+
+alias fuck = thefuck
+
 ########################
 #      ALIASES END     #
 ########################

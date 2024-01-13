@@ -110,9 +110,14 @@ shift + ctrl + lalt - s : yabai -m window --insert stack
 
 ## Misc
 # Open new Alacritty window
-lalt - return : alacritty msg create-window
-# lalt - return : alacritty && alacritty msg create-window
-# lalt - return : /usr/bin/open -na /Applications/alacritty.app
+
+# nushell use case
+lalt - return : bash ~/.config/skhd/open_alacritty.sh
+
+# one liner here works fine for non nushell
+# lalt - return : alacritty msg create-window || open -na /Applications/Alacritty.app && sleep 0.1 && yabai -m window --focus $(yabai -m query --windows | jq '[.[] | select(.app == "Alacritty")] | max_by(.id) | .id')
+
+
 
 # New window in hor./ vert. splits for all applications with yabai
 lalt - s : yabai -m window --insert east;  skhd -k "cmd - n"
