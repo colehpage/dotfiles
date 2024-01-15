@@ -15,11 +15,11 @@ IP_ADDRESS=$(echo $getIPAddress)
 IS_VPN=$(echo $getIsVPN)
 
 if [[ $IS_VPN != "" ]]; then
-    COLOR=$COLOR_CYAN
+    COLOR=$COLOR_ORANGE
     ICON=
     LABEL="VPN"
 elif [[ $IP_ADDRESS != "" ]]; then
-    COLOR=$COLOR_BLUE
+    COLOR=$COLOR_PURPLE
     ICON=
     LABEL=$IP_ADDRESS
 else

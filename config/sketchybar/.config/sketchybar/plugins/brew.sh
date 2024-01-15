@@ -5,18 +5,18 @@ source "$HOME/.config/colors.sh"
 
 COUNT=$(brew outdated | wc -l | tr -d ' ')
 
-COLOR=$COLOR_RED
+COLOR=$BREW_COLOR
 
 case "$COUNT" in
-  [3-5][0-9]) COLOR=$COLOR_ORANGE
+  [3-5][0-9]) COLOR=$COLOR_RED
   ;;
-  [1-2][0-9]) COLOR=$COLOR_YELLOW
+  [1-2][0-9]) COLOR=$COLOR_ORANGE
   ;;
-  [1-9]) COLOR=$COLOR_GREEN
+  [1-9]) COLOR=$COLOR_YELLOW
   ;;
   0) COLOR=$BREW_COLOR
-    #  COUNT=􀆅 # CHECKMARK
-    COUNT=0
+     COUNT=􀆅 # CHECKMARK
+    # COUNT=0
   ;;
 esac
 
