@@ -113,6 +113,7 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/sbin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/opt/fzf/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/Users/colehpage/Library/pnpm')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/Users/colehpage/go')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '/Users/colehpage/go/bin')
 
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '')
 
