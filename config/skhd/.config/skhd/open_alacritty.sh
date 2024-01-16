@@ -8,5 +8,5 @@ focus_window () {
 if ! pgrep -f "alacritty" > /dev/null 2>&1; then
     open -na /Applications/Alacritty.app
 else
-    alacritty msg create-window || open -na /Applications/Alacritty.app && sleep 0.1 && focus_window
+    alacritty msg create-window || open -na /Applications/Alacritty.app && sleep 0.2 && focus_window
 fi
