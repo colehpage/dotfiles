@@ -37,6 +37,12 @@ ctrl + alt - right : yabai -m space --rotate 90
 # Rotate counterclockwise
 ctrl + alt - left : yabai -m space --rotate 270
 
+# SWAPS
+ctrl + alt - i : yabai -m window --swap north
+ctrl + alt - k : yabai -m window --swap south
+ctrl + alt - l : yabai -m window --swap east
+ctrl + alt - j : yabai -m window --swap west
+
 # Window Navigation (through display borders): lalt - {j, k, l, ö}
 lalt - j    : yabai -m window --focus west  || yabai -m display --focus west
 lalt - k    : yabai -m window --focus south || yabai -m display --focus south
