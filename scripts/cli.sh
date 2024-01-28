@@ -17,7 +17,28 @@ install_python_packages() {
 install_go_tools() {
 	declare -A tools=(
 		[delve]="github.com/go-delve/delve/cmd/dlv@latest"
+        [go-outline]="github.com/ramya-rao-a/go-outline@latest"
+        [gocode]="github.com/stamblerre/gocode@latest"
+        [godef]="github.com/rogpeppe/godef@latest"
+        [godoc]="golang.org/x/tools/cmd/godoc@latest"
+        [gogetdoc]="github.com/zmb3/gogetdoc@latest"
+        [goimports]="golang.org/x/tools/cmd/goimports@latest"
+        [golangci-lint]="github.com/golangci/golangci-lint/cmd/golangci-lint@latest"
+        [golint]="golang.org/x/lint/golint@latest"
+        [gomodifytags]="github.com/fatih/gomodifytags@latest"
+        [gopkgs]="github.com/uudashr/gopkgs/v2/cmd/gopkgs@latest"
+        [goplay]="github.com/haya14busa/goplay@latest"
+        [gopls]="golang.org/x/tools/cmd/gopls@latest"
+        [gorename]="golang.org/x/tools/cmd/gorename@latest"
+        [goreturns]="github.com/sqs/goreturns@latest"
+        [gotags]="github.com/jstemmer/gotags@latest"
+        [gotests]="github.com/cweill/gotests/@latest"
+        [guru]="golang.org/x/tools/cmd/guru@latest"
+        [impl]="github.com/josharian/impl@latest"
+        [pathos]="github.com/chip/pathos@latest"
 		[shfmt]="mvdan.cc/sh/v3/cmd/shfmt@latest"
+        [staticcheck]="honnef.co/go/tools/cmd/staticcheck@latest"
+        [trainer]="github.com/rusinikita/trainer@latest"
 	)
 
 	for tool in "!${tools[@]}"; do

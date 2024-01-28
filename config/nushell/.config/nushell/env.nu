@@ -114,11 +114,13 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/opt/fzf/
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/Users/colehpage/Library/pnpm')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/Users/colehpage/go')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/Users/colehpage/go/bin')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '/Users/colehpage/go/.bun')
 
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '')
 
 $env.PNPM_HOME = /Users/colehpage/Library/pnpm
 $env.GOPATH = /Users/colehpage/go
+$env.BUN_INSTALL = /Users/colehpage/.bun
 
 $env.EDITOR = nvim
 

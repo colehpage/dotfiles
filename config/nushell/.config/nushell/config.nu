@@ -857,6 +857,9 @@ alias resume = cd ~/workspace/resume
 alias dotfiles = cd ~/workspace/dotfiles
 alias aoc = cd ~/workspace/advent-of-code
 
+## TICKER ##
+alias tconfig = nvim ~/.ticker.yaml
+
 ## NNN
 
 alias n = nnn
