@@ -1,38 +1,21 @@
-require('colehpage.settings')
-require('colehpage.highlights')
+require('keymaps')
+require('plugins.lazy')
+require('plugins.misc')
+require('plugins.lualine')
+require('options')
+require('misc')
+require('plugins.dap')
+require('plugins.gitsigns')
+require('plugins.tele')
+require('plugins.treesitter')
+require('plugins.lsp')
+require('plugins.trouble')
+-- require('plugins.ai')
+-- require('plugins.cody')
+-- require('plugins.copilot')
+-- require('plugins.gpt')
+-- require('plugins.nvim-llama')
+require('plugins.obsidian')
+require('plugins.zenmode')
 
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
-
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
-require('lazy').setup('colehpage.lazy-config')
-require('colehpage.keymaps')
-require("colehpage.plugin_config")
-require("colehpage.theme_config")
-
-local has = vim.fn.has
-local is_mac = has "macunix"
-local is_win = has "win32"
-local is_wsl = has "wsl"
-
-if is_mac then
-  require('colehpage.macos')
-end
-if is_win then
-  require('colehpage.windows')
-end
-if is_wsl then
-  require('colehpage.wsl')
-end
+-- vim: ts=8 sts=2 sw=2 et
