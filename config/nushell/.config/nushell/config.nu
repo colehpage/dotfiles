@@ -779,11 +779,11 @@ $env.config = {
 alias nuenv = nvim ~/.config/nushell/env.nu
 alias nuconfig = nvim ~/.config/nushell/config.nu
 alias zshconfig = nvim ~/.zshrc
-alias yabaiconfig = nvim ~/.config/yabai/.yabairc
-alias skhdconfig = nvim ~/.config/skhd/.skhdrc
+alias yabaiconfig = nvim ~/.config/yabai/yabairc
+alias skhdconfig = nvim ~/.config/skhd/skhdrc
 alias alconfig = nvim ~/.config/alacritty/alacritty.yml
 alias sbconfig = nvim ~/.config/sketchybar/sketchybarrc
-alias tmuxconfig = nvim ~/.tmux.conf
+alias tmuxconfig = nvim ~/.config/tmux/tmux.conf
 alias bordersconfig = nvim ~/.config/borders/bordersrc
 alias ohmyzsh = nvim ~/.oh-my-zsh
 
@@ -797,7 +797,7 @@ alias restartsb = brew services restart sketchybar
 
 ## TMUX
 
-alias restarttmux = tmux source-file ~/.tmux.conf
+alias restarttmux = tmux source-file ~/.config/tmux/tmux.conf
 alias sshhome = cd ~/.ssh
 
 ## DOCKER

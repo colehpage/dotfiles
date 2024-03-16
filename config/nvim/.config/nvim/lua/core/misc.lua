@@ -9,6 +9,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
+-- -- NvimTree
+-- vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", {noremap=true})
 
 -- Options through Telescope
 vim.api.nvim_set_keymap("n", "<Leader><tab>", "<Cmd>lua require('telescope.builtin').commands()<CR>", {noremap=false})
