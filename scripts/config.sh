@@ -38,6 +38,7 @@ stow_dotfiles() {
 		".config/tmux"
 		".config/yabai"
 		".config/zellij"
+        ".config/shell"
 		".gnupg"
 		".ssh"
 	)

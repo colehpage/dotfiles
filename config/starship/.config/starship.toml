@@ -14,10 +14,10 @@ style_user = "green bold"
 style_root = "red bold"
 format = "[$user]($style) "
 disabled = false
-show_always = true
+show_always = false
 
 [hostname]
-ssh_only = false
+ssh_only = true
 format = 'on [$hostname](bold purple) '
 trim_at = "."
 disabled = false
@@ -33,7 +33,7 @@ style = "bold italic blue"
 [cmd_duration]
 min_time = 4
 show_milliseconds = false
-disabled = false
+disabled = true
 style = "bold italic red"
 
 [aws]
@@ -55,7 +55,7 @@ style = "blue bold"
 only_with_files = true
 detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
 detect_folders = []
-disabled = false
+disabled = true
 
 [elixir]
 symbol = " "
@@ -113,7 +113,7 @@ version_format = "v${raw}"
 symbol = " "
 
 [rust]
-symbol = " "
+symbol = " "
 
 [scala]
 symbol = " "

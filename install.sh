@@ -24,111 +24,111 @@ wait_input() {
 }
 
 main() {
-	info "Installing ..."
+	# info "Installing ..."
 
-	info "################################################################################"
-	info "Homebrew Packages"
-	info "################################################################################"
-	wait_input
+	# info "################################################################################"
+	# info "Homebrew Packages"
+	# info "################################################################################"
+	# wait_input
 
-    # use install script to install homebrew, mas, vscode packages
-	install_packages
+    # # use install script to install homebrew, mas, vscode packages
+	# install_packages
 
-    # Install homebrew packages from Brewfile
-    # uncomment for simplified install
-    # brew bundle install
+    # # Install homebrew packages from Brewfile
+    # # uncomment for simplified install
+    # # brew bundle install
 
-	post_install_packages
-	success "Finished installing Homebrew packages"
+	# post_install_packages
+	# success "Finished installing Homebrew packages"
 
-	info "################################################################################"
-	info "Homebrew Fonts"
-	info "################################################################################"
-	wait_input
-	install_fonts
-	success "Finished installing fonts"
+	# info "################################################################################"
+	# info "Homebrew Fonts"
+	# info "################################################################################"
+	# wait_input
+	# install_fonts
+	# success "Finished installing fonts"
 
-	info "################################################################################"
-	info "Oh-my-zsh"
-	info "################################################################################"
-	wait_input
-	install_oh_my_zsh
-	success "Finished installing Oh-my-zsh"
+	# info "################################################################################"
+	# info "Oh-my-zsh"
+	# info "################################################################################"
+	# wait_input
+	# install_oh_my_zsh
+	# success "Finished installing Oh-my-zsh"
 
-	info "################################################################################"
-	info "MacOS Apps"
-	info "################################################################################"
-	wait_input
-	install_macos_apps
+	# info "################################################################################"
+	# info "MacOS Apps"
+	# info "################################################################################"
+	# wait_input
+	# install_macos_apps
 
-	install_masApps
-	success "Finished installing macOS apps"
+	# install_masApps
+	# success "Finished installing macOS apps"
 
-	info "################################################################################"
-	info "PiP modules"
-	info "################################################################################"
-	wait_input
-	install_python_packages
-	success "Finished installing python packages"
+	# info "################################################################################"
+	# info "PiP modules"
+	# info "################################################################################"
+	# wait_input
+	# install_python_packages
+	# success "Finished installing python packages"
 
-	info "################################################################################"
-	info "Rust tools"
-	info "################################################################################"
-	wait_input
-	install_rust_tools
-	success "Finished installing Rust tools"
+	# info "################################################################################"
+	# info "Rust tools"
+	# info "################################################################################"
+	# wait_input
+	# install_rust_tools
+	# success "Finished installing Rust tools"
 
-	info "################################################################################"
-	info "Golang tools"
-	info "################################################################################"
-	wait_input
-	install_go_tools
-	success "Finished installing Golang tools"
+	# info "################################################################################"
+	# info "Golang tools"
+	# info "################################################################################"
+	# wait_input
+	# install_go_tools
+	# success "Finished installing Golang tools"
 
-	info "################################################################################"
-	info "Configuration"
-	info "################################################################################"
-	wait_input
+	# info "################################################################################"
+	# info "Configuration"
+	# info "################################################################################"
+	# wait_input
 
-	setup_osx
-	success "Finished configuring MacOS defaults. NOTE: A restart is needed"
+	# setup_osx
+	# success "Finished configuring MacOS defaults. NOTE: A restart is needed"
 
 	stow_dotfiles
 	success "Finished stowing dotfiles"
 
-	info "################################################################################"
-	info "Crating development folders"
-	info "################################################################################"
-	mkdir -p ~/workspace/public
-	mkdir -p ~/workspace/personal
+	# info "################################################################################"
+	# info "Crating development folders"
+	# info "################################################################################"
+	# mkdir -p ~/workspace/public
+	# mkdir -p ~/workspace/personal
 
-	info "################################################################################"
-	info "SSH Key"
-	info "################################################################################"
-	setup_github_ssh
-	success "Finished setting up SSH Key"
+	# info "################################################################################"
+	# info "SSH Key"
+	# info "################################################################################"
+	# setup_github_ssh
+	# success "Finished setting up SSH Key"
 
-	if ! hash rustc &>/dev/null; then
-		info "################################################################################"
-		info "Rust Setup"
-		info "################################################################################"
-		wait_input
-		rustup-init
-	fi
+	# if ! hash rustc &>/dev/null; then
+	# 	info "################################################################################"
+	# 	info "Rust Setup"
+	# 	info "################################################################################"
+	# 	wait_input
+	# 	rustup-init
+	# fi
 
-	success "Done"
+	# success "Done"
 
-	info "System needs to restart. Restart?"
+	# info "System needs to restart. Restart?"
 
-	select yn in "y" "n"; do
-		case $yn in
-		y)
-			sudo shutdown -r now
-			break
-			;;
-		n) exit ;;
-		esac
-	done
+	# select yn in "y" "n"; do
+	# 	case $yn in
+	# 	y)
+	# 		sudo shutdown -r now
+	# 		break
+	# 		;;
+	# 	n) exit ;;
+	# 	esac
+	# done
 }
 
 trap cleanup SIGINT SIGTERM ERR EXIT
