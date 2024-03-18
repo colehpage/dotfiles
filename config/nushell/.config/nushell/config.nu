@@ -786,6 +786,7 @@ alias sbconfig = nvim ~/.config/sketchybar/sketchybarrc
 alias tmuxconfig = nvim ~/.config/tmux/tmux.conf
 alias bordersconfig = nvim ~/.config/borders/bordersrc
 alias ohmyzsh = nvim ~/.oh-my-zsh
+alias nudir = cd `~/Library/Application Support/nushell/`
 
 ## YABAI
 

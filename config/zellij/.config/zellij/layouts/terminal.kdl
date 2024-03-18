@@ -1,0 +1,12 @@
+layout {
+    tab name="terminal" {
+        pane split_direction="vertical" {
+            pane
+            pane size="20%"
+        }
+        pane size="25%"
+        pane size=1 borderless=true {
+            plugin location="file:/Users/colehpage/.config/zellij/plugins/statusbar.wasm"
+        }
+    }
+}

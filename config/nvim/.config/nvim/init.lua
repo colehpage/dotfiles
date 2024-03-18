@@ -1,26 +1,7 @@
-require("impatient").enable_profile()
-require('plugins.lazy')
-require('core.remap')
-require('core.set')
-require('core.misc')
-require('plugins.misc')
-require('plugins.lualine')
-require('plugins.dap')
-require('plugins.gitsigns')
-require('plugins.tele')
-require('plugins.treesitter')
-require('plugins.lsp')
-require('plugins.trouble')
-require('plugins.ai')
--- require('plugins.cody')
-require('plugins.copilot')
--- require('plugins.gpt')
--- require('plugins.nvim-llama')
-require('plugins.obsidian')
-require('plugins.tokyogogh')
-require('plugins.which-key')
--- require('plugins.nvim-tree')
-require('plugins.neo-tree')
-require('plugins.zenmode')
-
--- vim: ts=8 sts=2 sw=2 et
+require "neovide"
+require "settings"
+require "globals"
+require "plugins"
+require "theme"
+require "keymaps"
+require "commands"

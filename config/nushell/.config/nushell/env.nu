@@ -115,6 +115,8 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend '/Users/colehpage/Libra
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/Users/colehpage/go')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/Users/colehpage/go/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/Users/colehpage/go/.bun')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '/usr/local/bin')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '/Users/colehpage/.cargo/bin')
 
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '')
 
