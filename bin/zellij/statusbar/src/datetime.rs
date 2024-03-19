@@ -19,10 +19,10 @@ impl DateTime {
     // https://github.com/time-rs/time/issues/293
     // so using chrono (which is also broken here) :shrugs:
     pub fn now() -> Self {
-        // FIXME: UTC offset is always +00:00. Hardcoding TZ, for now.
+        // FIXME: FOR SOME REASON LOCAL::NOW IS NOT WORKING AND GIVE +4
         // let now = Local::now();
         let utc = Utc::now();
-        let offset = FixedOffset::east_opt(4 * 3600 /* hours */).unwrap();
+        let offset = FixedOffset::east_opt(-4 * 3600 /* hours */).unwrap(); // EST for now
         let now = utc.with_timezone(&offset);
 
         let datetime = now.format("%d/%m/%Y %H:%M").to_string();
