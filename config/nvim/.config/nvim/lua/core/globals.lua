@@ -1,8 +1,10 @@
 -- Keymaps
-
 _G.K = {}
 
-local default_keymap_options = { noremap = true, silent = true }
+local default_keymap_options = {
+    noremap = true,
+    silent = true
+}
 
 function K.map(mapping)
     -- NB!: it is important to remove items in reverse order to avoid shifting

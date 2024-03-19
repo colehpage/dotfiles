@@ -12,13 +12,13 @@ function M.setup()
             settings = {
                 ["rust-analyzer"] = {
                     checkOnSave = {
-                        command = "clippy",
-                    },
-                },
-            },
+                        command = "clippy"
+                    }
+                }
+            }
         },
         -- DAP configuration
-        dap = {},
+        dap = {}
     }
 end
 

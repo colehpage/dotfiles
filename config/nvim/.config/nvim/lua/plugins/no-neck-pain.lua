@@ -14,8 +14,8 @@ function M.setup()
             buftype = "nofile",
             bufhidden = "hide",
             buflisted = false,
-            swapfile = false,
-        },
+            swapfile = false
+        }
     }
 
     plugin.setup {
@@ -24,11 +24,11 @@ function M.setup()
         autocmds = {
             enableOnVimEnter = vim.g.neovide,
             enableOnTabEnter = false,
-            reloadOnColorSchemeChange = false,
+            reloadOnColorSchemeChange = false
         },
 
         mappings = {
-            enabled = false,
+            enabled = false
         },
 
         buffers = {
@@ -36,15 +36,15 @@ function M.setup()
             right = sideBufOpts,
             scratchPad = {
                 enabled = true,
-                fileName = M.scratchpad_filename,
-            },
+                fileName = M.scratchpad_filename
+            }
         },
 
         integrations = {
             NeoTree = {
-                reopen = false,
-            },
-        },
+                reopen = false
+            }
+        }
     }
 end
 
@@ -64,11 +64,15 @@ end
 function M.get_sidenotes()
     local plugin = _G.NoNeckPain
 
-    if not plugin then return nil end
+    if not plugin then
+        return nil
+    end
 
     local state = plugin.state
 
-    if not state then return nil end
+    if not state then
+        return nil
+    end
 
     local current_tab = vim.api.nvim_get_current_tabpage()
 
@@ -83,20 +87,24 @@ function M.get_sidenotes()
         end
     end
 
-    if not tab then return nil end
+    if not tab then
+        return nil
+    end
 
     local win = tab.wins.main
 
     return {
         left = win.left,
-        right = win.right,
+        right = win.right
     }
 end
 
 function M.are_sidenotes_visible()
     local sidenotes = M.get_sidenotes()
 
-    if not sidenotes then return false end
+    if not sidenotes then
+        return false
+    end
 
     return sidenotes.left ~= nil or sidenotes.right ~= nil
 end

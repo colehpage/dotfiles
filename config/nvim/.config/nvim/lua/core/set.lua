@@ -72,7 +72,7 @@ set.splitbelow = true --- Puts new split windows to the bottom of the current
 --- MISC
 vim.o.breakindent = true -- Enable break indent
 vim.o.undofile = true -- Save undo history
-vim.o.updatetime = 250 -- Decrease update time
+vim.o.updatetime = 10000 -- Decrease update time
 vim.wo.signcolumn = 'yes'
 vim.o.completeopt = 'menuone,noselect' -- Set completeopt to have a better completion experience
 vim.o.conceallevel = 2 -- Concealer for Neorg

@@ -8,16 +8,23 @@ function M.setup()
     plugin.setup {
         window = {
             backdrop = 1,
-            width = windows.default_width - 2, -- 2 since zen-mode removes borders
+            width = windows.default_width - 2 -- 2 since zen-mode removes borders
         },
         plugins = {
-            gitsigns = { enabled = true },
-        },
+            gitsigns = {
+                enabled = true
+            }
+        }
     }
 end
 
 function M.keymaps()
-    K.map { "<D-m>", "Toggle zen mode", m.toggle, mode = { "n", "i", "v" } }
+    K.map {
+        "<D-m>",
+        "Toggle zen mode",
+        m.toggle,
+        mode = {"n", "i", "v"}
+    }
 end
 
 function M.ensure_deacitvated()

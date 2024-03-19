@@ -7,72 +7,81 @@ function M.setup()
     plugin.setup {
         cmdline = {
             format = {
-                search_down = { view = "cmdline" },
-                search_up = { view = "cmdline" },
-            },
+                search_down = {
+                    view = "cmdline"
+                },
+                search_up = {
+                    view = "cmdline"
+                }
+            }
         },
         lsp = {
             -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
             override = {
                 ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
                 ["vim.lsp.util.stylize_markdown"] = true,
-                ["cmp.entry.get_documentation"] = true,
-            },
+                ["cmp.entry.get_documentation"] = true
+            }
         },
         presets = {
-            cmdline_output_to_split = true,
+            cmdline_output_to_split = true
         },
         views = {
             cmdline = {
                 position = {
                     row = 0,
-                    col = "50%",
+                    col = "50%"
                 },
                 size = {
                     width = 60,
-                    height = 1,
-                },
+                    height = 1
+                }
             },
             cmdline_output = {
-                enter = true,
+                enter = true
             },
             cmdline_popup = {
                 position = {
                     row = "30%",
-                    col = "50%",
+                    col = "50%"
                 },
                 size = {
                     width = 60,
-                    height = "auto",
-                },
+                    height = "auto"
+                }
             },
             popupmenu = {
                 relative = "editor",
                 position = {
                     row = "42%",
-                    col = "50%",
+                    col = "50%"
                 },
                 size = {
                     width = 60,
-                    height = 15,
+                    height = 15
                 },
                 border = {
                     style = "rounded",
-                    padding = { 0, 1 },
+                    padding = {0, 1}
                 },
                 win_options = {
                     winhighlight = {
                         Normal = "Normal",
-                        FloatBorder = "DiagnosticInfo",
-                    },
-                },
-            },
-        },
+                        FloatBorder = "DiagnosticInfo"
+                    }
+                }
+            }
+        }
     }
 end
 
 function M.keymaps()
-    K.map { "<C-i>", "LSP: Doc", require("noice.lsp").hover, mode = { "n", "v", "i" } }
+    K.map {
+        "<C-i>",
+        "LSP: Doc",
+        require("noice.lsp").hover,
+        mode = {"n", "v", "i"}
+    }
 end
 
 function M.scroll_lsp_doc(direction)
@@ -165,7 +174,9 @@ end
 
 function m.exit_cmdline()
     local keys = require "editor.keys"
-    keys.send("<Esc>", { mode = "n" })
+    keys.send("<Esc>", {
+        mode = "n"
+    })
 end
 
 return M

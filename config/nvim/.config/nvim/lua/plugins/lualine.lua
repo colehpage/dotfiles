@@ -14,114 +14,177 @@ function M.setup()
         incative_text = palette.faded_text,
         inverted_text = palette.bar_bg,
         bg = palette.bar_bg,
-        emphasized_bg = palette.lighter_gray,
+        emphasized_bg = palette.lighter_gray
     }
 
     local theme = {
         normal = {
-            a = { fg = color.inverted_text, bg = palette.cyan, gui = "bold" },
-            b = { fg = color.active_text, bg = color.bg },
-            c = { fg = color.active_text, bg = color.bg },
+            a = {
+                fg = color.inverted_text,
+                bg = palette.green,
+                gui = "bold"
+            },
+            b = {
+                fg = color.active_text,
+                bg = color.bg
+            },
+            c = {
+                fg = color.active_text,
+                bg = color.bg
+            }
         },
-        command = { a = { fg = color.inverted_text, bg = palette.yellow, gui = "bold" } },
-        insert = { a = { fg = color.inverted_text, bg = palette.green, gui = "bold" } },
-        visual = { a = { fg = color.inverted_text, bg = palette.purple, gui = "bold" } },
-        terminal = { a = { fg = color.inverted_text, bg = palette.cyan, gui = "bold" } },
-        replace = { a = { fg = color.inverted_text, bg = palette.red, gui = "bold" } },
+        command = {
+            a = {
+                fg = color.inverted_text,
+                bg = palette.yellow,
+                gui = "bold"
+            }
+        },
+        insert = {
+            a = {
+                fg = color.inverted_text,
+                bg = palette.green,
+                gui = "bold"
+            }
+        },
+        visual = {
+            a = {
+                fg = color.inverted_text,
+                bg = palette.purple,
+                gui = "bold"
+            }
+        },
+        terminal = {
+            a = {
+                fg = color.inverted_text,
+                bg = palette.green,
+                gui = "bold"
+            }
+        },
+        replace = {
+            a = {
+                fg = color.inverted_text,
+                bg = palette.red,
+                gui = "bold"
+            }
+        },
         inactive = {
-            a = { fg = color.incative_text, bg = color.bg, gui = "bold" },
-            b = { fg = color.incative_text, bg = color.bg },
-            c = { fg = color.incative_text, bg = color.bg },
-        },
+            a = {
+                fg = color.incative_text,
+                bg = color.bg,
+                gui = "bold"
+            },
+            b = {
+                fg = color.incative_text,
+                bg = color.bg
+            },
+            c = {
+                fg = color.incative_text,
+                bg = color.bg
+            }
+        }
     }
 
     local project_section = {
         function()
             local fs = require "editor.fs"
-            return fs.root { capitalize = true }
+            return fs.root {
+                capitalize = true
+            }
         end,
-        color = { fg = color.inverted_text, bg = palette.cyan, gui = "bold" },
+        color = {
+            fg = color.inverted_text,
+            bg = palette.green,
+            gui = "bold"
+        }
     }
 
     local tabs_section = {
         "tabs",
         mode = 1,
         tabs_color = {
-            active = { fg = color.active_text, bg = color.emphasized_bg },
-            inactive = { fg = color.incative_text, bg = color.bg },
-        },
+            active = {
+                fg = color.active_text,
+                bg = color.emphasized_bg
+            },
+            inactive = {
+                fg = color.incative_text,
+                bg = color.bg
+            }
+        }
     }
 
-    local mode_section = {
-        function()
-            local m = linemode.get_mode()
-            if m == "NORMAL" then
-                return "N"
-            elseif m == "VISUAL" then
-                return "V"
-            elseif m == "SELECT" then
-                return "S"
-            elseif m == "INSERT" then
-                return "I"
-            elseif m == "REPLACE" then
-                return "R"
-            elseif m == "COMMAND" then
-                return "C"
-            elseif m == "EX" then
-                return "X"
-            elseif m == "TERMINAL" then
-                return "T"
-            else
-                return m
-            end
-        end,
-    }
+    local mode_section = {function()
+        local m = linemode.get_mode()
+        if m == "NORMAL" then
+            return "N"
+        elseif m == "VISUAL" then
+            return "V"
+        elseif m == "SELECT" then
+            return "S"
+        elseif m == "INSERT" then
+            return "I"
+        elseif m == "REPLACE" then
+            return "R"
+        elseif m == "COMMAND" then
+            return "C"
+        elseif m == "EX" then
+            return "X"
+        elseif m == "TERMINAL" then
+            return "T"
+        else
+            return m
+        end
+    end}
 
     local filename_section = {
         "filename",
         path = 1,
-        color = { fg = color.active_text, bg = color.emphasized_bg },
+        color = {
+            fg = color.active_text,
+            bg = color.emphasized_bg
+        },
         fmt = function(v, _ctx)
             if m.should_ignore_filetype() then
                 return nil
             else
                 return v
             end
-        end,
+        end
     }
 
     local branch_section = {
         "branch",
-        color = { fg = color.active_text, bg = color.bg },
+        color = {
+            fg = color.active_text,
+            bg = color.bg
+        }
     }
 
     local diagnostics_section = {
         diagnostics,
-        sections = {
-            "error",
-            "warn",
-            "info",
-            "hint",
-        },
+        sections = {"error", "warn", "info", "hint"},
         colors = {
             error = "StatusBarDiagnosticError",
-            warn  = "StatusBarDiagnosticWarn",
-            info  = "StatusBarDiagnosticInfo",
-            hint  = "StatusBarDiagnosticHint",
+            warn = "StatusBarDiagnosticWarn",
+            info = "StatusBarDiagnosticInfo",
+            hint = "StatusBarDiagnosticHint"
         },
         symbols = {
             error = lsp.signs.Error .. " ",
             warn = lsp.signs.Warn .. " ",
             info = lsp.signs.Info .. " ",
-            hint = lsp.signs.Hint .. " ",
-        },
+            hint = lsp.signs.Hint .. " "
+        }
     }
 
     local searchcount_section = "searchcount"
 
     local encoding_section = {
         "encoding",
-        color = { fg = color.incative_text },
+        color = {
+            fg = color.incative_text
+        }
     }
 
     local filetype_section = {
@@ -137,19 +200,30 @@ function M.setup()
                     return v
                 end
             end
-        end,
+        end
     }
 
     local progress_section = {
         "progress",
-        separator = { left = "" },
-        color = { fg = color.active_text, bg = color.emphasized_bg },
+        separator = {
+            left = ""
+        },
+        color = {
+            fg = color.active_text,
+            bg = color.emphasized_bg
+        }
     }
 
     local location_seciton = {
         "location",
-        padding = { left = 0, right = 1 },
-        color = { fg = color.active_text, bg = color.emphasized_bg },
+        padding = {
+            left = 0,
+            right = 1
+        },
+        color = {
+            fg = color.active_text,
+            bg = color.emphasized_bg
+        }
     }
 
     plugin.setup {
@@ -160,55 +234,49 @@ function M.setup()
             section_separators = {
                 left = "",
                 -- left = "",
-                right = "",
+                right = ""
             },
             disabled_filetypes = {},
             ignore_focus = {},
             always_divide_middle = true,
-            globalstatus = true,
+            globalstatus = true
         },
         sections = {
-            lualine_a = {
-                mode_section,
-            },
-            lualine_b = {
-                filename_section,
-                branch_section,
-                diagnostics_section,
-            },
+            lualine_a = {mode_section},
+            lualine_b = {filename_section, branch_section, diagnostics_section},
             lualine_c = {},
             lualine_x = {},
-            lualine_y = {
-                searchcount_section,
-                encoding_section,
-                filetype_section,
-                progress_section,
-            },
-            lualine_z = {
-                location_seciton,
-            },
+            lualine_y = {searchcount_section, encoding_section, filetype_section, progress_section},
+            lualine_z = {location_seciton}
         },
         tabline = {
-            lualine_a = { project_section },
+            lualine_a = {project_section},
             lualine_b = {},
             lualine_c = {},
             lualine_x = {},
             lualine_y = {},
-            lualine_z = { tabs_section },
-        },
+            lualine_z = {tabs_section}
+        }
     }
 
     m.ensure_tabline_visibility_mode()
 end
 
 function M.keymaps()
-    K.map { "<M-l>", "Toggle filename in statusline", m.toggle_filename, mode = { "n", "i", "v" } }
+    K.map {
+        "<M-l>",
+        "Toggle filename in statusline",
+        m.toggle_filename,
+        mode = {"n", "i", "v"}
+    }
 end
 
 function M.show()
     local plugin = require "lualine"
 
-    plugin.hide({ unhide = true })
+    plugin.hide({
+        unhide = true
+    })
 end
 
 function M.hide()
@@ -268,15 +336,15 @@ function m.diagnostics_component()
                 error = self:create_hl(options.colors.error, "error"),
                 warn = self:create_hl(options.colors.warn, "warn"),
                 info = self:create_hl(options.colors.info, "info"),
-                hint = self:create_hl(options.colors.hint, "hint"),
-            },
+                hint = self:create_hl(options.colors.hint, "hint")
+            }
         }
     end
 
     function diagnostics:update_status()
         local context = {
             BUFFER = "buffer",
-            WORKSPACE = "workspace",
+            WORKSPACE = "workspace"
         }
 
         local function count_diagnostics(ctx, severity)
@@ -291,7 +359,9 @@ function m.diagnostics_component()
                 return nil
             end
 
-            local total = vim.diagnostic.get(bufnr, { severity = severity })
+            local total = vim.diagnostic.get(bufnr, {
+                severity = severity
+            })
 
             return vim.tbl_count(total)
         end
@@ -303,28 +373,46 @@ function m.diagnostics_component()
 
             local eb = count_diagnostics(context.BUFFER, severity.ERROR)
             local ew = count_diagnostics(context.WORKSPACE, severity.ERROR)
-            if eb > 0 or ew > 0 then results.error = { eb, ew } else results.error = nil end
+            if eb > 0 or ew > 0 then
+                results.error = {eb, ew}
+            else
+                results.error = nil
+            end
 
             local wb = count_diagnostics(context.BUFFER, severity.WARN)
             local ww = count_diagnostics(context.WORKSPACE, severity.WARN)
-            if wb > 0 or ww > 0 then results.warn = { wb, ww } else results.warn = nil end
+            if wb > 0 or ww > 0 then
+                results.warn = {wb, ww}
+            else
+                results.warn = nil
+            end
 
             local ib = count_diagnostics(context.BUFFER, severity.INFO)
             local iw = count_diagnostics(context.WORKSPACE, severity.INFO)
-            if ib > 0 or iw > 0 then results.info = { ib, iw } else results.info = nil end
+            if ib > 0 or iw > 0 then
+                results.info = {ib, iw}
+            else
+                results.info = nil
+            end
 
             local hb = count_diagnostics(context.BUFFER, severity.HINT)
             local hw = count_diagnostics(context.WORKSPACE, severity.HINT)
-            if hb > 0 or hw > 0 then results.hint = { hb, hw } else results.hint = nil end
+            if hb > 0 or hw > 0 then
+                results.hint = {hb, hw}
+            else
+                results.hint = nil
+            end
 
             for _, v in pairs(results) do
-                if v ~= nil then return results end
+                if v ~= nil then
+                    return results
+                end
             end
 
             return nil
         end
 
-        local output = { " " }
+        local output = {" "}
 
         local bufnr = vim.api.nvim_get_current_buf()
 
@@ -336,7 +424,9 @@ function m.diagnostics_component()
             diagnostics_results = self.diagnostics.last_results[bufnr]
         end
 
-        if diagnostics_results == nil then return "" end
+        if diagnostics_results == nil then
+            return ""
+        end
 
         local lualine_utils = require "lualine.utils.utils"
 
@@ -370,19 +460,9 @@ end
 function m.should_ignore_filetype()
     local ft = vim.bo.filetype
 
-    return
-        ft == "alpha"
-        or ft == "noice"
-        or ft == "lazy"
-        or ft == "mason"
-        or ft == "neo-tree"
-        or ft == "TelescopePrompt"
-        or ft == "lazygit"
-        or ft == "DiffviewFiles"
-        or ft == "spectre_panel"
-        or ft == "sagarename"
-        or ft == "sagafinder"
-        or ft == "saga_codeaction"
+    return ft == "alpha" or ft == "noice" or ft == "lazy" or ft == "mason" or ft == "neo-tree" or ft ==
+               "TelescopePrompt" or ft == "lazygit" or ft == "DiffviewFiles" or ft == "spectre_panel" or ft ==
+               "sagarename" or ft == "sagafinder" or ft == "saga_codeaction"
 end
 
 return M

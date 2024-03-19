@@ -2,7 +2,12 @@ local M = {}
 local m = {}
 
 function M.keymaps()
-    K.mapseq { "<D-p>p", "Open plugins manager", "<Cmd>Lazy<CR>", mode = "n" }
+    K.mapseq {
+        "<D-p>p",
+        "Open plugins manager",
+        "<Cmd>Lazy<CR>",
+        mode = "n"
+    }
 end
 
 function M.ensure_hidden()
@@ -22,7 +27,9 @@ end
 
 function m.close()
     local keys = require "editor.keys"
-    keys.send("q", { mode = "x" })
+    keys.send("q", {
+        mode = "x"
+    })
 end
 
 return M

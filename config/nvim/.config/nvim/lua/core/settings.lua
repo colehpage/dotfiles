@@ -29,11 +29,14 @@ opt.listchars = {
     trail = "·",
     precedes = "←",
     extends = "→",
-    nbsp = "+",
+    nbsp = "+"
     -- eol = "↲",
 }
 
-opt.fillchars = { eob = " ", diff = "" }
+opt.fillchars = {
+    eob = " ",
+    diff = ""
+}
 opt.ignorecase = true
 opt.smartcase = true
 opt.mouse = "a"
@@ -49,13 +52,13 @@ opt.showtabline = 1
 
 opt.wrap = false
 
-opt.whichwrap:append {
+opt.whichwrap:append{
     ["<"] = true,
     [">"] = true,
     ["["] = true,
     ["]"] = true,
     h = true,
-    l = true,
+    l = true
 }
 
 opt.autoread = true
