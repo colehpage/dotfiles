@@ -17,7 +17,7 @@ function M.setup()
         ensure_installed = {"c", "cpp", "go", "python", "vimdoc", "vim", "wgsl", "terraform", "bash", "css", "diff",
                             "dockerfile", "git_rebase", "gitattributes", "gitcommit", "gitignore", "graphql", "html",
                             "javascript", "json", "lua", "markdown", "markdown_inline", "regex", "rust", "scss", "sql",
-                            "swift", "toml", "yaml", "typescript"},
+                            "swift", "toml", "yaml", "typescript", "svelte"},
         textobjects = {
             select = {
                 enable = true,

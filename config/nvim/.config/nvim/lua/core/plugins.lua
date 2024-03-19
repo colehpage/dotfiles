@@ -106,7 +106,7 @@ local plugins = { -- stdlib
     config = require("plugins.lsp.lspconfig").setup
 }, {
     "glepnir/lspsaga.nvim",
-    branch = "main", -- TODO: Go back to stable after the current version is released
+    branch = "main",
     event = "BufEnter",
     config = require("plugins.lsp.lspsaga").setup
 }, {
@@ -123,7 +123,7 @@ local plugins = { -- stdlib
     dependencies = {"nvim-lua/plenary.nvim"},
     branch = "main",
     event = {"BufRead Cargo.toml"},
-    config = require"plugins.crates".setup
+    config = require("plugins.crates").setup
 }, {
     "stevearc/conform.nvim",
     version = "*",

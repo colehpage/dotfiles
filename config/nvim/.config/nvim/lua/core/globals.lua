@@ -1,5 +1,6 @@
 -- Keymaps
 _G.K = {}
+_G.vim = vim
 
 local default_keymap_options = {
     noremap = true,
@@ -23,7 +24,7 @@ function K.map(mapping)
 end
 
 function K.mapseq(mapping)
-    local wk = require "which-key"
+    local wk = require("which-key")
 
     local keymap = {}
 

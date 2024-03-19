@@ -5,38 +5,66 @@ function M.keymaps()
     K.map {
         "<D-w>",
         "Delete current buffer, but do not close current window if there are multiple",
-        function() m.delete_buf({ should_close_window = false, force = false }) end,
-        mode = { "n", "v" },
+        function()
+            m.delete_buf({
+                should_close_window = false,
+                force = false
+            })
+        end,
+        mode = {"n", "v"}
     }
     K.map {
         "<C-w>",
         "Delete current buffer and close current window if there are multiple",
-        function() m.delete_buf({ should_close_window = true, force = false }) end,
-        mode = { "n", "i", "v", "t", "c" },
+        function()
+            m.delete_buf({
+                should_close_window = true,
+                force = false
+            })
+        end,
+        mode = {"n", "i", "v", "t", "c"}
     }
     K.mapseq {
         "<Leader>wck",
         "Delete current buffer, even if unsaved, but do not close current window if there are multiple",
-        function() m.delete_buf({ should_close_window = false, force = true }) end,
-        mode = "n",
+        function()
+            m.delete_buf({
+                should_close_window = false,
+                force = true
+            })
+        end,
+        mode = "n"
     }
     K.map {
         "<Leader>wcc",
         "Delete current buffer, even if unsaved, and close current window if there are multiple",
-        function() m.delete_buf({ should_close_window = true, force = true }) end,
-        mode = "n",
+        function()
+            m.delete_buf({
+                should_close_window = true,
+                force = true
+            })
+        end,
+        mode = "n"
     }
     K.mapseq {
         "<Leader>was",
         "Delete all buffers except current & unsaved",
-        function() m.delete_all_bufs_except_current({ incl_unsaved = false }) end,
-        mode = "n",
+        function()
+            m.delete_all_bufs_except_current({
+                incl_unsaved = false
+            })
+        end,
+        mode = "n"
     }
     K.mapseq {
         "<Leader>waf",
         "Delete all buffers except current",
-        function() m.delete_all_bufs_except_current({ incl_unsaved = true }) end,
-        mode = "n",
+        function()
+            m.delete_all_bufs_except_current({
+                incl_unsaved = true
+            })
+        end,
+        mode = "n"
     }
 end
 
@@ -47,10 +75,14 @@ end
 
 function M.get_listed_bufs(opts)
     local o = opts or {}
-    local bufs = vim.fn.getbufinfo({ buflisted = 1 })
+    local bufs = vim.fn.getbufinfo({
+        buflisted = 1
+    })
 
     if o.sort_lastused then
-        table.sort(bufs, function(a, b) return a.lastused > b.lastused end)
+        table.sort(bufs, function(a, b)
+            return a.lastused > b.lastused
+        end)
     end
 
     return bufs
@@ -65,11 +97,6 @@ end
 function m.delete_buf(options)
     local noice = require "plugins.noice"
     if noice.ensure_hidden() then
-        return
-    end
-
-    local alpha = require "plugins.alpha"
-    if alpha.is_active() then
         return
     end
 
@@ -117,7 +144,10 @@ function m.delete_buf(options)
 
     local current_win = vim.api.nvim_get_current_win()
 
-    local opts = vim.tbl_extend("keep", options, { force = false, should_close_window = false })
+    local opts = vim.tbl_extend("keep", options, {
+        force = false,
+        should_close_window = false
+    })
 
     local current_buf = vim.api.nvim_get_current_buf()
     local current_buf_info = m.get_buf_info(current_buf)
@@ -136,10 +166,14 @@ function m.delete_buf(options)
 
     if mode ~= "n" then
         local keys = require "editor.keys"
-        keys.send("<Esc>", { mode = "x" })
+        keys.send("<Esc>", {
+            mode = "x"
+        })
     end
 
-    local tab_windows = windows.get_tab_windows_with_listed_buffers({ incl_help = true })
+    local tab_windows = windows.get_tab_windows_with_listed_buffers({
+        incl_help = true
+    })
 
     if tab_windows == nil then
         vim.api.nvim_err_writeln "No windows in the current tab"
@@ -158,10 +192,14 @@ function m.delete_buf(options)
 
         -- We don't want to destroy the buffer that is shown in another window
         if not is_opened_elsewhere then
-            vim.api.nvim_buf_delete(current_buf, { force = opts.force })
+            vim.api.nvim_buf_delete(current_buf, {
+                force = opts.force
+            })
         end
     else
-        local bufs = M.get_listed_bufs({ sort_lastused = true })
+        local bufs = M.get_listed_bufs({
+            sort_lastused = true
+        })
 
         -- Searching for the next buffer to show in the current window
         local next_buf = nil
@@ -193,14 +231,18 @@ function m.delete_buf(options)
             vim.cmd "silent! write"
             vim.api.nvim_set_current_buf(next_buf)
             if not is_opened_elsewhere then
-                vim.api.nvim_buf_delete(current_buf, { force = opts.force })
+                vim.api.nvim_buf_delete(current_buf, {
+                    force = opts.force
+                })
             end
         else
             if #tab_windows > 1 then
                 vim.cmd "silent! write"
                 vim.cmd.close()
                 if not is_opened_elsewhere then
-                    vim.api.nvim_buf_delete(current_buf, { force = opts.force })
+                    vim.api.nvim_buf_delete(current_buf, {
+                        force = opts.force
+                    })
                 end
             else
                 local empty_buf = vim.api.nvim_create_buf(true, false)
@@ -213,7 +255,9 @@ function m.delete_buf(options)
                     vim.api.nvim_set_current_buf(empty_buf)
                 end
 
-                vim.api.nvim_buf_delete(current_buf, { force = opts.force })
+                vim.api.nvim_buf_delete(current_buf, {
+                    force = opts.force
+                })
             end
         end
     end
@@ -225,7 +269,9 @@ function m.delete_all_bufs_except_current(opts)
     local incl_unsaved = opts.incl_unsaved
 
     local current_buf = vim.api.nvim_get_current_buf()
-    local bufs = vim.fn.getbufinfo({ buflisted = 1 })
+    local bufs = vim.fn.getbufinfo({
+        buflisted = 1
+    })
 
     vim.cmd "silent! wa"
 

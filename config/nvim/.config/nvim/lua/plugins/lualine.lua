@@ -460,9 +460,9 @@ end
 function m.should_ignore_filetype()
     local ft = vim.bo.filetype
 
-    return ft == "alpha" or ft == "noice" or ft == "lazy" or ft == "mason" or ft == "neo-tree" or ft ==
-               "TelescopePrompt" or ft == "lazygit" or ft == "DiffviewFiles" or ft == "spectre_panel" or ft ==
-               "sagarename" or ft == "sagafinder" or ft == "saga_codeaction"
+    return ft == "noice" or ft == "lazy" or ft == "mason" or ft == "neo-tree" or ft == "TelescopePrompt" or ft ==
+               "lazygit" or ft == "DiffviewFiles" or ft == "spectre_panel" or ft == "sagarename" or ft == "sagafinder" or
+               ft == "saga_codeaction"
 end
 
 return M
