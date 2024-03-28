@@ -2,12 +2,18 @@
 
 source "$HOME/.config/colors.sh"
 
+rgb_to_argb() {
+    rgb_color="$1"
+    argb_color="0xff${rgb_color:2}"
+    echo "$argb_color"
+}
+
 options=(
 	style=round
 	width=4
 	hidpi=on
-    active_color=$COLOR_ACCENT_BRIGHT
-    inactive_color=$COLOR_BACKGROUND
+    active_color=$(rgb_to_argb $COLOR_ACCENT_BRIGHT)
+    inactive_color=$(rgb_to_argb $COLOR_BACKGROUND)
 )
 
 borders "${options[@]}"
