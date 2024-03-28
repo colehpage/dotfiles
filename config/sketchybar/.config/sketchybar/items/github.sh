@@ -1,7 +1,5 @@
 #!/bin/bash
 
-source "$HOME/.config/colors.sh"
-
 POPUP_CLICK_SCRIPT="sketchybar --set \$NAME popup.drawing=toggle"
 
 github_bell=(
@@ -12,7 +10,7 @@ github_bell=(
   icon.color=$GITHUB_COLOR
   label=$LOADING
   label.color=$GITHUB_COLOR
-  label.highlight_color=$COLOR_BLUE
+  label.highlight_color=$GITHUB_COLOR
   popup.align=right
   script="$PLUGIN_DIR/github.sh"
   click_script="$POPUP_CLICK_SCRIPT"

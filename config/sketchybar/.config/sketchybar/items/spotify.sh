@@ -1,7 +1,5 @@
 #!/bin/bash
 
-source "$HOME/.config/colors.sh"
-
 SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 POPUP_SCRIPT="sketchybar -m --set spotify.anchor popup.drawing=toggle"
 
@@ -14,9 +12,9 @@ spotify_anchor=(
   icon=􀺹
   icon.font="$FONT:Regular:25.0"
   icon.font.size=16
-  icon.color=$COLOR_GREEN
+  icon.color=$SB_GREEN
   label.font="$FONT:Medium:12.0"
-  label.color=$COLOR_GREEN
+  label.color=$SB_GREEN
   background.color=$ITEM_BACKGROUND_COLOR
   background.height=33
   background.border_width=2
@@ -80,8 +78,8 @@ spotify_state=(
   width=0
   slider.background.height=6
   slider.background.corner_radius=1
-  slider.background.color=$COLOR_GREY
-  slider.highlight_color=$COLOR_GREEN
+  slider.background.color=$SB_GREY
+  slider.highlight_color=$SB_GREEN
   slider.percentage=40
   slider.width=115
   script="$PLUGIN_DIR/spotify.sh"
@@ -93,8 +91,8 @@ spotify_shuffle=(
   icon=􀊝
   icon.padding_left=5
   icon.padding_right=5
-  icon.color=$COLOR_BLACK
-  icon.highlight_color=$COLOR_GREY
+  icon.color=$SB_BLACK
+  icon.highlight_color=$SB_GREY
   label.drawing=off
   script="$PLUGIN_DIR/spotify.sh"
   y_offset=-45
@@ -104,7 +102,7 @@ spotify_back=(
   icon=􀊎
   icon.padding_left=5
   icon.padding_right=5
-  icon.color=$COLOR_COLOR_BLACK
+  icon.color=$SB_BLACK
   script="$PLUGIN_DIR/spotify.sh"
   label.drawing=off
   y_offset=-45
@@ -117,7 +115,7 @@ spotify_play=(
   width=50
   align=center
   background.color=$POPUP_BACKGROUND_COLOR
-  background.border_color=$COLOR_WHITE
+  background.border_color=$SB_WHITE
   background.border_width=0
   background.drawing=on
   icon.padding_left=4
@@ -132,7 +130,7 @@ spotify_next=(
   icon=􀊐
   icon.padding_left=5
   icon.padding_right=5
-  icon.color=$COLOR_BLACK
+  icon.color=$SB_BLACK
   label.drawing=off
   script="$PLUGIN_DIR/spotify.sh"
   y_offset=-45
@@ -140,17 +138,17 @@ spotify_next=(
 
 spotify_repeat=(
   icon=􀊞
-  icon.highlight_color=$COLOR_GREY
+  icon.highlight_color=$SB_GREY
   icon.padding_left=5
   icon.padding_right=10
-  icon.color=$COLOR_BLACK
+  icon.color=$SB_BLACK
   label.drawing=off
   script="$PLUGIN_DIR/spotify.sh"
   y_offset=-45
 )
 
 spotify_controls=(
-  background.color=$COLOR_GREEN
+  background.color=$SB_GREEN
   background.corner_radius=11
   background.drawing=on
   y_offset=-45

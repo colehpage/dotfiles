@@ -3,7 +3,6 @@
 update() {
   source "$CONFIG_DIR/sb_colors.sh"
   source "$CONFIG_DIR/sb_icons.sh"
-  source "$HOME/.config/colors.sh"
 
   NOTIFICATIONS="$(gh api notifications)"
   COUNT="$(echo "$NOTIFICATIONS" | jq 'length')"
@@ -36,18 +35,18 @@ update() {
       title="No new notifications"
     fi 
     case "${type}" in
-      "'Issue'") COLOR=$COLOR_GREEN; ICON=$GIT_ISSUE; URL="$(gh api "$(echo "${url}" | sed -e "s/^'//" -e "s/'$//")" | jq .html_url)"
+      "'Issue'") COLOR=$SB_GREEN; ICON=$GIT_ISSUE; URL="$(gh api "$(echo "${url}" | sed -e "s/^'//" -e "s/'$//")" | jq .html_url)"
       ;;
-      "'Discussion'") COLOR=$COLOR_BLUE; ICON=$GIT_DISCUSSION; URL="https://www.github.com/notifications"
+      "'Discussion'") COLOR=$SB_BLUE; ICON=$GIT_DISCUSSION; URL="https://www.github.com/notifications"
       ;;
-      "'PullRequest'") COLOR=$COLOR_PURPLE; ICON=$GIT_PULL_REQUEST; URL="$(gh api "$(echo "${url}" | sed -e "s/^'//" -e "s/'$//")" | jq .html_url)"
+      "'PullRequest'") COLOR=$SB_PURPLE; ICON=$GIT_PULL_REQUEST; URL="$(gh api "$(echo "${url}" | sed -e "s/^'//" -e "s/'$//")" | jq .html_url)"
       ;;
-      "'Commit'") COLOR=$COLOR_BLUE; ICON=$GIT_COMMIT; URL="$(gh api "$(echo "${url}" | sed -e "s/^'//" -e "s/'$//")" | jq .html_url)"
+      "'Commit'") COLOR=$SB_BLUE; ICON=$GIT_COMMIT; URL="$(gh api "$(echo "${url}" | sed -e "s/^'//" -e "s/'$//")" | jq .html_url)"
       ;;
     esac
     
     if [ "$IMPORTANT" != "" ]; then
-      COLOR=$COLOR_RED
+      COLOR=$SB_RED
       ICON=􀁞
       args+=(--set github.bell icon.color=$COLOR)
     fi
@@ -82,7 +81,7 @@ popup() {
 case "$SENDER" in
   "routine"|"forced") update
   ;;
-  "mouse.enteCOLOR_red") popup on
+  "mouse.enteSB_red") popup on
   ;;
   "mouse.exited"|"mouse.exited.global") popup off
   ;;

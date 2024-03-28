@@ -2,7 +2,6 @@
 
 source "$CONFIG_DIR/sb_colors.sh"
 source "$CONFIG_DIR/sb_icons.sh"
-source "$HOME/.config/colors.sh"
 
 getIPAddress=$(TARGET_PATH="."
 scutil --nwi | grep address | sed 's/.*://' | tr -d ' ' | head -1)
@@ -15,15 +14,15 @@ IP_ADDRESS=$(echo $getIPAddress)
 IS_VPN=$(echo $getIsVPN)
 
 if [[ $IS_VPN != "" ]]; then
-    COLOR=$COLOR_ORANGE
+    COLOR=$SB_ORANGE
     ICON=
     LABEL="VPN"
 elif [[ $IP_ADDRESS != "" ]]; then
-    COLOR=$COLOR_PURPLE
+    COLOR=$SB_PURPLE
     ICON=
     LABEL=$IP_ADDRESS
 else
-    COLOR=$COLOR_WHITE
+    COLOR=$SB_WHITE
     ICON=
     LABEL="OFFLINE"
 fi

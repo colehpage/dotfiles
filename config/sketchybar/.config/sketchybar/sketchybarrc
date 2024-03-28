@@ -1,7 +1,6 @@
 #!/bin/bash
 
 source "$CONFIG_DIR/sb_colors.sh" # Loads all defined SB colors
-source "$HOME/.config/colors.sh" # Loads all defined global colors
 source "$CONFIG_DIR/sb_icons.sh" # Loads all defined icons
 
 ITEM_DIR="$CONFIG_DIR/items" # Directory where the items are configured
